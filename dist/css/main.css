@@ -51,7 +51,7 @@ nav ul {
 	position: fixed;
 	-webkit-box-pack: space-evenly;
 	        justify-content: space-evenly;
-	bottom: 2rem;
+	top: 79vh;
 	left: 1rem;
 	display: -webkit-box;
 	display: flex;
@@ -116,7 +116,7 @@ header {
 	max-height: 1080px;
 	width: 100%;
 	display: grid;
-	grid-template-rows: 1.25fr repeat(8, 1fr);
+	grid-template-rows: repeat(9, 1fr);
 	grid-template-columns: repeat(6, 1fr);
 }
 
@@ -259,7 +259,7 @@ header {
 .platform-counter {
 	grid-column: 3 / span 2;
 	grid-row: 3;
-	margin-top: 1.5rem;
+	margin-top: 1.25rem;
 	height: 1rem;
 	display: -webkit-box;
 	display: flex;
@@ -295,12 +295,49 @@ header {
 	opacity: 0.7;
 }
 
+.platform-counter .slash {
+	margin: 0 0.5rem;
+}
+
 .hero-container {
 	grid-column: 1 / span 7;
 	grid-row: 3/7;
 	margin-top: 3.75rem;
 	height: 40vh;
 	position: relative;
+	overflow: hidden;
+}
+
+.hero-text {
+	position: absolute;
+	font-size: 11rem;
+	white-space: nowrap;
+	left: -4rem;
+	top: 6rem;
+}
+
+.hero-text .zero, .hero-text .seven, .hero-text .seven-2 {
+	opacity: 0.5;
+	text-shadow: -1px -1px 0 #fcee0a, 1px -1px 0 #fcee0a, -1px 1px 0 #fcee0a, 1px 1px 0 #fcee0a;
+}
+
+.hero-text .two {
+	z-index: 1;
+}
+
+.hero-text .zero {
+	position: relative;
+	z-index: 4;
+}
+
+.hero-text .seven {
+	position: relative;
+	z-index: 2;
+}
+
+.hero-text .seven-2 {
+	position: relative;
+	z-index: 4;
 }
 
 .trailer {
@@ -332,19 +369,6 @@ header {
 	width: 100%;
 }
 
-i {
-	position: absolute;
-	left: -4px;
-	bottom: -4px;
-	width: 0;
-	height: 0;
-	border-color: transparent transparent transparent #fcee0a;
-	border-style: solid;
-	border-width: 60px 0 0 60px;
-	z-index: 5;
-	margin-left: 4.5rem;
-}
-
 .hero {
 	position: absolute;
 	z-index: 3;
@@ -362,6 +386,44 @@ i {
 	-webkit-transform: scale(1.05);
 	    -ms-transform: scale(1.05);
 	        transform: scale(1.05);
+}
+
+.trailer-border:before, .trailer-border:after {
+	content: '';
+	height: 2rem;
+	width: 10rem;
+	background-image: url("../../Design Assets/detail-header-bottom-yellow.svg");
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: 120%;
+}
+
+.trailer-border:before {
+	left: 4.25rem;
+	top: -2px;
+	z-index: 2;
+}
+
+.trailer-border:after {
+	-webkit-transform: rotateZ(-90deg);
+	    -ms-transform: rotate(-90deg);
+	        transform: rotateZ(-90deg);
+	z-index: 2;
+	top: 2rem;
+	left: .5rem;
+}
+
+i {
+	position: absolute;
+	left: -4px;
+	bottom: -4px;
+	width: 0;
+	height: 0;
+	border-color: transparent transparent transparent #fcee0a;
+	border-style: solid;
+	border-width: 60px 0 0 60px;
+	z-index: 5;
+	margin-left: 4.5rem;
 }
 
 .video-overlay {

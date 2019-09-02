@@ -19,7 +19,7 @@ header {
     max-height: 1080px;
     width: 100%;
     display: grid;
-    grid-template-rows: 1.25fr repeat(8, 1fr);
+    grid-template-rows: repeat(9, 1fr);
     grid-template-columns: repeat(6, 1fr);
 }
 
@@ -124,7 +124,7 @@ header {
 .platform-counter {
     grid-column: 3 / span 2;
     grid-row: 3;
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
     height: 1rem;
     display: flex;
     justify-content: space-between;
@@ -148,6 +148,9 @@ header {
         font-weight: 700;
         opacity: 0.7;
     }
+    .slash {
+        margin: 0 0.5rem;
+    }
 }
 
 .hero-container {
@@ -156,6 +159,38 @@ header {
     margin-top: 3.75rem;
     height: 40vh;
     position: relative;
+    overflow: hidden;
+}
+
+.hero-text  {
+    position: absolute;
+    font-size: 11rem;
+    white-space: nowrap;
+    left: -4rem;
+    top: 6rem;
+    .zero, .seven, .seven-2 {
+        opacity: 0.5;
+        text-shadow:
+       -1px -1px 0 $yellow,  
+        1px -1px 0 $yellow,
+       -1px  1px 0 $yellow,
+        1px  1px 0 $yellow;
+    }
+    .two {
+        z-index: 1;
+    }
+    .zero {
+        position: relative;
+        z-index: 4;
+    }
+    .seven {
+        position: relative;
+        z-index: 2;
+    }
+    .seven-2 {
+        position: relative;
+        z-index: 4;
+    }
 }
 
 .trailer {
@@ -183,18 +218,6 @@ header {
     }
 }
 
-i {
-    position: absolute;
-    left: -4px;
-    bottom: -4px;
-    width: 0;
-    height: 0;
-    border-color:  transparent  transparent transparent $yellow ;
-    border-style: solid;
-    border-width: 60px 0 0 60px;
-    z-index: 5;
-    margin-left: 4.5rem;
-}
 .hero {
     position: absolute;
     z-index: 3;
@@ -207,6 +230,43 @@ i {
     transform-origin: bottom;
     transform: scale(1.05)
 }
+
+.trailer-border {
+    &:before, &:after {
+        content: '';
+        height: 2rem; 
+        width: 10rem;
+        background-image: url('../../Design\ Assets/detail-header-bottom-yellow.svg');
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: 120%;
+    }
+    &:before {
+        left: 4.25rem;
+        top: -2px;
+        z-index: 2;
+    }
+    &:after {
+        transform: rotateZ(-90deg);
+        z-index: 2;
+        top: 2rem;
+        left: .5rem;
+    }
+}
+
+i {
+    position: absolute;
+    left: -4px;
+    bottom: -4px;
+    width: 0;
+    height: 0;
+    border-color:  transparent  transparent transparent $yellow ;
+    border-style: solid;
+    border-width: 60px 0 0 60px;
+    z-index: 5;
+    margin-left: 4.5rem;
+}
+
 
 
 
