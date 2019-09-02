@@ -1,2 +1,112 @@
+nav {
+	position: absolute;
+	width: 100%;
+	padding: 1rem;
+}
+
+nav img {
+	width: 10rem;
+	height: auto;
+	-o-object-fit: contain;
+	   object-fit: contain;
+	position: absolute;
+}
+
+nav ul {
+	visibility: hidden;
+}
+
+.hamburger-menu {
+	position: absolute;
+	right: 1rem;
+	top: 1.4rem;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+	flex-wrap: nowrap;
+	width: 3rem;
+	height: 3rem;
+	overflow: hidden;
+	-webkit-transform: rotateY(180deg) scale(0.8);
+	        transform: rotateY(180deg) scale(0.8);
+}
+
+.hamburger-menu .burger {
+	background-image: url("../../Design Assets/detail-header-bottom-black.svg");
+	background-repeat: no-repeat;
+	height: .5rem;
+	background-position-x: -1rem;
+	-webkit-transform: scale(1.5);
+	    -ms-transform: scale(1.5);
+	        transform: scale(1.5);
+	margin-top: 0.2rem;
+}
+
+.sm-links {
+	position: fixed;
+	bottom: 1rem;
+	left: 1rem;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+	width: 3rem;
+	height: 6rem;
+}
+
+.sm-links div {
+	background-repeat: no-repeat;
+	background-size: 1rem;
+}
+
+.sm-links div.twitter-link {
+	background-image: url("../../Design Assets/icon-twitter.svg");
+	height: 3rem;
+}
+
+.sm-links div.insta-link {
+	background-image: url("../../Design Assets/icon-instagram.svg");
+	height: 1rem;
+}
+
+.sm-links div.facebook-link {
+	background-image: url("../../Design Assets/icon-facebook.svg");
+	height: 1rem;
+}
+
+.sm-links div.youtube-link {
+	background-image: url("../../Design Assets/icon-youtube.svg");
+	height: 1rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: 'Saira', sans-serif;
+}
+
+header {
+	background: #fcee0a;
+	height: 100vh;
+	max-height: 1080px;
+	width: 100%;
+}
+
+.video-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url("../../Design Assets/photoshop_scanlines_texture_overlay_by_sinner_pwa_d6uu408-pre.png");
+	mix-blend-mode: color-burn;
+	opacity: .5;
+	background-size: 100%;
+	height: 40rem;
+	width: 100%;
+}
 
 /*# sourceMappingURL=main.css.map */

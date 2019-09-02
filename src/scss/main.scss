@@ -1,2 +1,31 @@
-// Content
+@import "./variables";
+@import "./navbar";
+@import "./sidebar";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Saira', sans-serif;
+}
+
+header {
+    background: $yellow;
+    height: 100vh;
+    max-height: 1080px;
+    width: 100%;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../../Design\ Assets/photoshop_scanlines_texture_overlay_by_sinner_pwa_d6uu408-pre.png');
+    mix-blend-mode: color-burn;
+    opacity: .5;
+    background-size: 100%;
+    height: 40rem;
+    width: 100%;
+}
 
