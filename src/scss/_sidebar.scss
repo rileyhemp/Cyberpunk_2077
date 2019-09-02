@@ -1,15 +1,20 @@
 .sm-links {
     position: fixed; 
+    justify-content: space-evenly;
     bottom: 1rem;
     left: 1rem;
     display: flex;
     flex-direction: column;
-    width: 3rem;
-    height: 6rem;
+    width: 3.5rem;
+    height: 8.5rem;
+    background-color: $black;
     div {
         background-repeat: no-repeat;
-        background-size: 1rem;
+        background-size: contain;
         height: 1rem;
+        width: 100%;
+        background-position: center;
+        cursor: pointer;
         &.twitter-link  {
             background-image: url('../../Design\ Assets/icon-twitter.svg');
         }
@@ -22,5 +27,15 @@
         &.youtube-link {
             background-image: url('../../Design\ Assets/icon-youtube.svg');
         }
+    }
+    i {
+        position: absolute;
+        right: -2px;
+        top: -2px;
+        width: 0;
+        height: 0;
+        border-color: $yellow transparent  transparent transparent ;
+        border-style: solid;
+        border-width: 16px 0 0 16px;
     }
 }
