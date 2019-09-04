@@ -10,6 +10,18 @@ html {
     font-family: 'Saira', sans-serif;
 }
 
+h1 {
+    font-size: 2.75rem; 
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+p {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    line-height: 1.5rem;
+}
+
 header {
     height: 100vh;
 }
@@ -136,7 +148,8 @@ header {
     }
     &.hero-counter {
         grid-row: 8;
-        margin-top: -0.5rem;
+        margin-top: -0.4rem;
+        z-index: 102;
     }
     grid-column: 3 / span 2;
     height: 1rem;
@@ -370,10 +383,6 @@ header {
     margin-right: 1rem;
 }
 
-
-
-
-
 .video-overlay {
     position: absolute;
     top: 0;
@@ -386,3 +395,82 @@ header {
     width: 100%;
 }
 
+//**************  PAGE 2  **************//
+     //*********  PAGE 2  *********//
+          //****  PAGE 2  ****//
+
+
+          
+.container {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    max-height: 1080px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr) .5fr;
+    grid-template-columns: repeat(6, 1fr);
+    overflow: hidden;
+}
+
+.about {
+    background-image: url('../../Design\ Assets/background-filter-one.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+}
+
+.about-content {
+    color: white;
+    grid-row: 4 / span 8;
+    grid-column: 1/ span 7;
+    padding: 0 2rem;
+    position: relative;
+    margin-top: -.5rem;
+    z-index: 3;
+    i {
+        background-image: url('../../Design\ Assets/detail-header-bottom-red.svg');
+        background-size: contain;
+        height: 1rem;
+        width: 10rem;
+        background-repeat: no-repeat;
+        display: block;
+        transform: rotateX(180deg) scaleX(1) scaleY(.5);
+        margin: .5rem 0;
+        filter: brightness(0.85);
+        &:after {
+            content: '';
+            height: 3px;
+            width: 100vw;
+            transform: translateY(-10px);
+            background-color: $red;
+            display: inline-block;
+        }
+    }
+}
+
+.about-paragraph-container {
+    height: 20vh;
+    overflow: scroll;
+    padding-right: .65rem;
+    &::-webkit-scrollbar {
+        width: 3px;
+        height: 0px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $red20;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #444444
+    }
+}
+
+.about-hero {
+    background-image: url('../../Design\ Assets/hero-about-fade.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    grid-row: 2 / span 8;
+    grid-column: 1 / span 7;
+    z-index: 1;
+    transform: scale(1.25);
+    margin-top: 2rem;
+}

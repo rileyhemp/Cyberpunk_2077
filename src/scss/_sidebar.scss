@@ -1,13 +1,15 @@
 .sm-links {
     position: fixed; 
     justify-content: space-evenly;
-    top: 78vh;
+    //bottom calculated by 100 - (100/19) 
+    bottom: 5.2631%;
     left: 1rem;
     display: flex;
     flex-direction: column;
     width: 3.5rem;
     height: 8.5rem;
-    background-color: $black;
+    background: url('../../Design\ Assets/sm-container-yellow.svg');
+    z-index: 200;
     div {
         background-repeat: no-repeat;
         background-size: contain;
@@ -16,16 +18,16 @@
         background-position: center;
         cursor: pointer;
         &.twitter-link  {
-            background-image: url('../../Design\ Assets/icon-twitter.svg');
+            background-image: url('../../Design\ Assets/icon-twitter-black.svg');
         }
         &.insta-link {
-            background-image: url('../../Design\ Assets/icon-instagram.svg');
+            background-image: url('../../Design\ Assets/icon-instagram-black.svg');
         }
         &.facebook-link {
-            background-image: url('../../Design\ Assets/icon-facebook.svg');
+            background-image: url('../../Design\ Assets/icon-facebook-black.svg');
         }
         &.youtube-link {
-            background-image: url('../../Design\ Assets/icon-youtube.svg');
+            background-image: url('../../Design\ Assets/icon-youtube-black.svg');
         }
     }
     i {
