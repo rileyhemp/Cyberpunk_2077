@@ -51,7 +51,7 @@ nav ul {
 	position: fixed;
 	-webkit-box-pack: space-evenly;
 	        justify-content: space-evenly;
-	top: 79vh;
+	top: 78vh;
 	left: 1rem;
 	display: -webkit-box;
 	display: flex;
@@ -113,11 +113,20 @@ header {
 
 .container-home {
 	background: #fcee0a;
+	height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
 	max-height: 1080px;
 	width: 100%;
 	display: grid;
-	grid-template-rows: repeat(9, 1fr);
+	grid-template-rows: repeat(8, 1fr) 0.5fr;
 	grid-template-columns: repeat(6, 1fr);
+	overflow: hidden;
+}
+
+.container-home.animation-enter {
+	display: absolute;
+	top: 0;
+	display: none;
 }
 
 .platform-select {
@@ -256,10 +265,8 @@ header {
 	background-position-x: -20%;
 }
 
-.platform-counter {
+.platform-counter, .hero-counter {
 	grid-column: 3 / span 2;
-	grid-row: 3;
-	margin-top: 1.25rem;
 	height: 1rem;
 	display: -webkit-box;
 	display: flex;
@@ -267,7 +274,17 @@ header {
 	        justify-content: space-between;
 }
 
-.platform-counter button {
+.platform-counter.platform-counter, .hero-counter.platform-counter {
+	grid-row: 3;
+	margin-top: 1.25rem;
+}
+
+.platform-counter.hero-counter, .hero-counter.hero-counter {
+	grid-row: 8;
+	margin-top: -0.5rem;
+}
+
+.platform-counter button, .hero-counter button {
 	border: none;
 	outline: none;
 	background-image: url("../../Design Assets/icon-arrow-select.svg");
@@ -275,19 +292,19 @@ header {
 	background-repeat: no-repeat;
 }
 
-.platform-counter button.previous-slide {
+.platform-counter button.previous-slide, .hero-counter button.previous-slide {
 	-webkit-transform: rotate(90deg);
 	    -ms-transform: rotate(90deg);
 	        transform: rotate(90deg);
 }
 
-.platform-counter button.next-slide {
+.platform-counter button.next-slide, .hero-counter button.next-slide {
 	-webkit-transform: rotate(-90deg);
 	    -ms-transform: rotate(-90deg);
 	        transform: rotate(-90deg);
 }
 
-.platform-counter .slide-counter {
+.platform-counter .slide-counter, .hero-counter .slide-counter {
 	color: #fe003c;
 	font-size: 0.875rem;
 	text-shadow: 0px 0px 4px rgba(254, 0, 60, 0.5);
@@ -295,7 +312,7 @@ header {
 	opacity: 0.7;
 }
 
-.platform-counter .slash {
+.platform-counter .slash, .hero-counter .slash {
 	margin: 0 0.5rem;
 }
 
@@ -305,14 +322,13 @@ header {
 	margin-top: 3.75rem;
 	height: 40vh;
 	position: relative;
-	overflow: hidden;
 }
 
 .hero-text {
 	position: absolute;
-	font-size: 11rem;
+	font-size: 8rem;
 	white-space: nowrap;
-	left: -4rem;
+	left: -1rem;
 	top: 6rem;
 }
 
@@ -373,13 +389,12 @@ header {
 	position: absolute;
 	z-index: 3;
 	top: -32px;
-	left: -20px;
-	-o-object-fit: cover;
-	   object-fit: cover;
+	left: -13px;
+	-o-object-fit: contain;
+	   object-fit: contain;
 	-o-object-position: left;
 	   object-position: left;
 	height: 110%;
-	width: 100%;
 	-webkit-transform-origin: bottom;
 	    -ms-transform-origin: bottom;
 	        transform-origin: bottom;
@@ -410,13 +425,13 @@ header {
 	        transform: rotateZ(-90deg);
 	z-index: 2;
 	top: 2rem;
-	left: .5rem;
+	left: .25rem;
 }
 
-i {
+.hero-container i {
 	position: absolute;
-	left: -4px;
-	bottom: -4px;
+	left: -1rem;
+	bottom: -.25rem;
 	width: 0;
 	height: 0;
 	border-color: transparent transparent transparent #fcee0a;
@@ -424,6 +439,118 @@ i {
 	border-width: 60px 0 0 60px;
 	z-index: 5;
 	margin-left: 4.5rem;
+}
+
+.button-container-home {
+	display: -webkit-box;
+	display: flex;
+	position: absolute;
+	grid-row: 5;
+	bottom: 3rem;
+	z-index: 101;
+	-webkit-box-pack: center;
+	        justify-content: center;
+	width: 100%;
+	-webkit-transform: translateX(-2%) scale(0.9);
+	    -ms-transform: translateX(-2%) scale(0.9);
+	        transform: translateX(-2%) scale(0.9);
+}
+
+.button-container-home button {
+	outline: none;
+	border: none;
+	background-color: transparent;
+	background-size: 100%;
+	width: 11rem;
+	background-repeat: no-repeat;
+	font-size: .75rem;
+	font-weight: 700;
+	color: #fcee0a;
+	text-transform: uppercase;
+	height: 2.5rem;
+	padding-top: 2px;
+}
+
+.button-container-home .pre-order {
+	background-image: url("../../Design Assets/button-solid-red.svg");
+	-webkit-transform: translateX(10%);
+	    -ms-transform: translateX(10%);
+	        transform: translateX(10%);
+	z-index: 2;
+	padding-left: 15px;
+}
+
+.button-container-home .watch-trailer {
+	background-image: url("../../Design Assets/button-outline-yellow.svg");
+	-webkit-transform: translateX(-10%) scaleX(1.1);
+	    -ms-transform: translateX(-10%) scaleX(1.1);
+	        transform: translateX(-10%) scaleX(1.1);
+	z-index: 1;
+	padding-left: 20px;
+}
+
+.next-hero-preview {
+	background-image: url("../../Design Assets/hero-2-preview.png");
+	height: 5rem;
+	grid-column: 2/span 4;
+	grid-row: 7;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-top: -1.25rem;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	        justify-content: center;
+	z-index: 101;
+	text-align: center;
+	padding-right: 5rem;
+	font-size: 2rem;
+	position: relative;
+}
+
+.scroll-indicator {
+	grid-row-end: 9;
+	grid-column: 3/5;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+	-webkit-box-pack: end;
+	        justify-content: flex-end;
+	-webkit-box-align: center;
+	        align-items: center;
+}
+
+.scroll-indicator div {
+	background-color: #252525;
+	margin-top: 0.5rem;
+	height: 0.3rem;
+	width: 0.3rem;
+	border-radius: 5px;
+}
+
+.scroll-indicator div:first-child {
+	opacity: 0.33;
+}
+
+.scroll-indicator div:nth-child(2) {
+	opacity: 0.66;
+}
+
+.share-btn-mobile {
+	grid-row-end: 9;
+	grid-column: 6;
+	background-image: url("../../Design Assets/share-button.svg");
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position-y: 100%;
+	background-position-x: 100%;
+	margin-right: 1rem;
 }
 
 .video-overlay {

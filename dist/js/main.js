@@ -1,4 +1,8 @@
 "use strict";
 
-console.log("Hello World from main.js! \nChange this message, and make sure it changes in the browser \nto verify that you're working in the right files.");
+window.addEventListener('resize', function () {
+  var vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
+});
+console.log('hi');
 //# sourceMappingURL=main.js.map
