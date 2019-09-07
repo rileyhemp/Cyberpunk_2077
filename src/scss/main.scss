@@ -34,6 +34,11 @@ header {
     height: 100vh;
 }
 
+.beveled-frame {
+    clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
+    position: relative;
+}
+
 .fullscreen-video {
     display: none;
 }
@@ -42,7 +47,7 @@ header {
     text-transform: uppercase;
     color: $yellow;
     font-size: .75rem;
-    
+    visibility: hidden;
     grid-column: 2 / span 2;
     grid-row: 2;
     margin-top: 2rem;
@@ -57,13 +62,14 @@ header {
     }
     .expanded-description & {
         transform: translateX(0);
+        visibility: visible;
     }
 }    
 
 .container {
-    background-image: url('../../Design\ Assets/background-filter-blank-square-67.png');
+    background-image: url('../../Design\ Assets/background-filter-blank-square-50.png');
     background-repeat: inherit;
-    background-size: 86%;
+    background-size: 50rem;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     max-height: 1080px;
@@ -576,6 +582,7 @@ header {
         content: '';
         position: absolute;
         background-image: url('../../Design\ Assets/background-5.jpg');
+        filter: blur(2px);
         background-repeat: no-repeat;
         background-size: cover;
         min-width: 100%;
@@ -632,7 +639,7 @@ header {
 }
 
 .about-hero {
-    background-image: url('../../Design\ Assets/hero-about-fade.png');
+    background-image: url('../../Design\ Assets/hero-about-fade-large.png');
     background-repeat: no-repeat;
     background-size: contain;
     grid-row: 2 / span 8;
@@ -734,8 +741,10 @@ header {
         background-size: cover;
         min-width: 100%;
         min-height: 100%;
+        filter: contrast(1.25) brightness(.7) hue-rotate(190deg) blur(2px);
         mix-blend-mode: hard-light;
         background-position-x: 10%;
+        z-index: -1;
     }
     z-index: 1;
     ul li {
@@ -762,49 +771,72 @@ header {
 
 
 .character-preview {
+    margin-top: 1.5rem;
     grid-row: 2 / span 3;
     grid-column: 2 /6;
-    transform: translateY(1rem);
     position: relative;
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    max-height: 16.25rem;
-    max-width: 16.25rem;
+    max-height: 15.25rem;
+    max-width: 15.25rem;
     z-index: 1;
+    box-shadow: inset 0px 0px 20px 0px $red;
     &.v {
-        background-image: url('../../Design\ Assets/1x/character-preview-v.png');
+        background-image: url('../../Design\ Assets/v-female-blur-background.png');
+        filter: brightness(1.5);
+        background-size: 60rem;
+        background-position-x: 55%;
+        background-position-y: 35%;
     }
     &.dexter {
-        background-image: url('../../Design\ Assets/1x/character-preview-dexter.png');
+        background-image: url('../../Design\ Assets/dexter-blurred-background.png');
+        background-size: 18rem;
+        background-position-y: 35%;
+        background-position-x: 0%;
     }
     &.jackie {
-        background-image: url('../../Design\ Assets/1x/character-preview-jackie.png');
+        background-image: url('../../Design\ Assets/jackie-blurred-background.png');
+        background-size: 18rem;
+        background-position-y: 35%;
+        background-position-x: 0%;
     }
     &.johnny {
-        background-image: url('../../Design\ Assets/1x/character-preview-johnny.png');
+        background-image: url('../../Design\ Assets/johnny-blurred-background.png');
+        background-size: 18rem;
+        background-position-y: 35%;
+        background-position-x: 0%;
     }
     .expanded-description & {
         transform: translateY(1rem) translateX(-100vw);
     }
+}
+
+.character-preview-overlay {
+    margin-top: 1.5rem;
+    grid-row: 2 / span 3;
+    grid-column: 2 /6;
+    position: relative;
+    max-height: 15.25rem;
+    max-width: 15.25rem;
     &:before, &:after {
         content: "";
         position: absolute;
         height: 105%;
         width: 20px;
-        top: -2.5%;
+        top: -5%;
         background-image: radial-gradient(circle at center, $red 1px, transparent 3px), radial-gradient(circle at center, $red 1px, transparent 3px);
-        padding: -0.25rem;
+        padding: 0.5rem;
         background-size: 20px 20px;
         background-position: top center, bottom center;
         background-repeat: no-repeat;
     }
     &:before {
-        left: -.5rem;
+        left: -1.5rem;
     }
     &:after {
-        right: -.5rem;
+        right: -1.5rem;
     }
 }
 
@@ -906,7 +938,7 @@ li.dexter, li.jackie, li.johnny {
     &:after {
         content: '';
         height: 2px;
-        width: 100vw;
+        width: 11.75rem;
         transform: translateY(-11px) translateX(8px);
         background-color: $red;
         display: inline-block;
@@ -927,6 +959,7 @@ li.dexter, li.jackie, li.johnny {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical; 
+    word-break: break-all;
     .expanded-description &{
         -webkit-line-clamp: 20;
         overflow: scroll;
@@ -995,7 +1028,8 @@ li.dexter, li.jackie, li.johnny {
     &:before {
         content: '';
         position: absolute;
-        background-image: url('../../Design\ Assets/background-1.jpg');
+        background-image: url('../../Design\ Assets/background-4.jpg');
+        filter: saturate(1.5) brightness(0.5) blur(2px);
         background-repeat: no-repeat;
         background-size: cover;
         min-width: 100%;
@@ -1236,11 +1270,28 @@ li.dexter, li.jackie, li.johnny {
     }
 
 
-    //**************  PAGE 5  **************//
-       
-    
-    //*********  PAGE 5  *********//
-    
+    //****  PAGE 4  ****//  
+
+    .character-preview, .character-preview-overlay {
+        max-width: 20rem;
+        max-height: 20rem;
+        margin: 0;
+    }
+
+    .character-preview {
+        &.dexter, &.jackie, &.johnny {
+            background-size: 25rem;
+        } 
+        &.v {
+            background-size: 80rem;
+        }
+    }
+
+    .characters-divider {
+        &:after {
+            width: 100vw;
+        }
+    }
     
     //****  PAGE 5  ****//   
 
@@ -1270,7 +1321,22 @@ li.dexter, li.jackie, li.johnny {
 
 @media screen and (min-width: 1024px) {
     .centering-div {
-        margin: -1rem auto 0 30%;
+        margin: -2rem auto 0 30%;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        line-height: 4.25rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+
+    .breadcrumbs {
+        font-size: 0.875rem;
+        font-weight: 700;
+        visibility: visible;
     }
 
     .hero {
@@ -1348,6 +1414,7 @@ li.dexter, li.jackie, li.johnny {
             opacity: 0.7;
             top: 49%;
             left: 15rem;
+            transition: all 0.2s;
         }
         .platform:before, .platform:after {
             filter: invert(1);
@@ -1376,14 +1443,14 @@ li.dexter, li.jackie, li.johnny {
             width: 5.5vw;
         }
     }
-    @media screen and (max-width: 1752px) {
+    @media screen and (max-width: 1750px) {
         .platform-select:after {
             width: 4.2vw;
         }
     }
-    @media screen and (max-width: 1552px) {
+    @media screen and (max-width: 1650px) {
         .platform-select:after {
-            width: 2.2vw;
+            width: 2.8vw;
         }
     }
 
@@ -1448,17 +1515,278 @@ li.dexter, li.jackie, li.johnny {
         }
     }
 
+    .container {
+        &:after {
+            left: 70%;
+            z-index: -1;
+        }
+    }
+
+
+
+//**************  PAGE 2  **************//
 
 
 
 
 
+     //*********  PAGE 2  *********//
 
 
 
 
 
+          //****  PAGE 2  ****// 
+
+    .about:after {
+        left: 10%;
+        filter: opacity(0.5);
+    }
+
+    .container.about {
+        height: calc(var(--vh, 1vh) * 100);
+    }
+
+    .about-hero {
+        background-size: 65%;
+        grid-row: 2 / span 8;
+        margin-top: 1rem;
+        grid-column: 4 /span 7;
+        filter: brightness(1.25);
+    }
+
+    .about-content {
+        grid-column: 3 / span 3;
+        grid-row: 5 / span 7;
+        
+        h1 {
+            margin-bottom: 2rem;
+            padding-right: 20rem;
+        }
+        i {
+            margin-bottom: 2.25rem;
+        }   
+    }
+
+    .about-paragraph-container {
+        overflow: initial;
+        p {
+            line-height: 2rem;
+            padding-right: 12rem;
+        }
+    }
+
+    .about-image {
+        grid-row: 3 / span 4;
+        grid-column: 2 / span 2;
+        background-image: url('../../Design\ Assets/v-stare.jpg');
+        background-size: cover;
+        background-position-x: 30%;
+        margin-right: 12rem;
+        margin-bottom: 3rem;
+    }
+
+    .about-image-overlay {
+        grid-row: 3 / span 4;
+        grid-column: 2 / span 2;
+        margin-right: 12rem;
+        margin-bottom: 3rem;
+        position: relative;
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 20px;
+            top: -1.75%;
+            background-image: radial-gradient(circle at center, $red 2px, transparent 4px), radial-gradient(circle at center, $red 2px, transparent 4px);
+            padding: 0.5rem;
+            background-size: 20px 20px;
+            background-position: top center, bottom center;
+            background-repeat: no-repeat;
+        }
+        &:before {
+            left: -1.5rem;
+        }
+        &:after {
+            right: -1.5rem;
+        }
+    }
+
+//**************  PAGE 3  **************//
 
 
 
+
+
+    //*********  PAGE 3  *********//
+
+
+
+
+
+        //****  PAGE 3  ****// 
+
+
+    .trailer {
+        .play-button {
+            &:before {
+                font-size: 1rem;
+                top: 0.5rem;
+            }
+            &:after {
+                width: 100vw;
+            }
+        }
+    }
+
+    .trailer:after {
+        left: 90%;
+        filter: opacity(.5);
+        z-index: 2;
+        mix-blend-mode: color-burn;
+    }
+
+    
+//************  PAGE 4  ************//
+         
+
+
+
+
+    //********  PAGE 4  ********//
+
+
+
+
+
+        //****  PAGE 4  ****// 
+
+
+    .characters:after {
+        left: 15%;
+        z-index: -1;
+        filter: opacity(.4);
+    }
+
+    .breadcrumbs.animation-enter {
+        transform: translateX(0);
+    }
+
+    .character-preview, .character-preview-overlay {
+        grid-row: 4 / span 3;
+        max-width: 18rem;
+        max-height: 22rem;
+        margin-top: -2rem;
+    }
+
+    .slide {
+        &.dexter {
+            z-index: 3;
+        }
+        &.jackie {
+            z-index: 2;
+            margin-left: 3rem;
+            .character-preview {
+                filter: brightness(.75) grayscale(1);
+            }
+            .character-preview-overlay {
+                filter: brightness(.75);
+            }
+            .character-preview, .character-preview-overlay {
+                transform: scale(.95);
+            }
+        }
+        &.johnny {
+            z-index: 1;
+            margin-left: 6rem;
+            .character-preview {
+                filter: brightness(.25) grayscale(1);
+            }
+            .character-preview-overlay {
+                filter: brightness(.5);
+            }
+            .character-preview, .character-preview-overlay {
+                transform: scale(.9);
+            }
+        }
+    }
+
+    .character-name, .character-description, .characters-divider {
+        grid-column: 3;
+        margin-left: 4rem;
+        margin-top: 3rem;
+    }
+    
+    .character-name {
+        grid-row: 4;
+        margin-top: 0;
+    }
+
+    .characters-divider {
+        margin-top: -6rem;
+    }
+
+    .character-description {
+        margin-top: 0rem;
+        grid-row: 5;
+        max-width: 25rem;
+        -webkit-line-clamp: 3;
+        max-height: 4.5rem;
+        word-break: break-word;
+    }
+
+    .characters-divider:after {
+        max-width: 20rem;
+    }
+
+    .read-more {
+        grid-row: 5;
+        grid-column: 3;
+        margin-left: 5.5rem;
+        margin-top: 6.5rem;
+        transform: scale(1.25);
+    }
+
+    .character-preview {
+        &.dexter, &.jackie, &.johnny {
+            background-size: 27rem;
+        } 
+    }
+    .character-counter-divider {
+        background-image: url('../../Design\ Assets/detail-header-bottom-red.svg');
+        background-size: contain;
+        height: 1rem;
+        width: 6rem;
+        background-repeat: no-repeat;
+        display: block;
+        transform: scaleX(1) scaleY(.5);
+        margin: .5rem 0;
+        filter: brightness(0.85);
+        grid-column: 4;
+        grid-row: 7;
+        margin-top: 6rem;
+        margin-left: -1rem;
+        &:after {
+            content: '';
+            height: 3px;
+            width: 100vw;
+            transform: translateY(-10px);
+            background-color: $red;
+            display: inline-block;
+        }
+    }
+    .characters {
+        .container-no-bg {
+            grid-template-columns: repeat(6, 1fr);
+        }
+        .slide.animation-enter {
+            transform: translateX(50vw);
+            .character-image, .character-name, .characters-divider, .character-description {
+                transform: translateX(50vw);
+            }
+            .character-preview {
+                box-shadow: none;
+            }
+        }
+    }
 }
