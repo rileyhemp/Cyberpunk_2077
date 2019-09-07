@@ -1,0 +1,36 @@
+.sm-links {
+	position: fixed;
+	bottom: 1rem;
+	left: 1rem;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+	width: 3rem;
+	height: 6rem;
+}
+
+.sm-links div {
+	background-repeat: no-repeat;
+	background-size: 1rem;
+	height: 1rem;
+}
+
+.sm-links div.twitter-link {
+	background-image: url("../../Design Assets/icon-twitter.svg");
+}
+
+.sm-links div.insta-link {
+	background-image: url("../../Design Assets/icon-instagram.svg");
+}
+
+.sm-links div.facebook-link {
+	background-image: url("../../Design Assets/icon-facebook.svg");
+}
+
+.sm-links div.youtube-link {
+	background-image: url("../../Design Assets/icon-youtube.svg");
+}
+
+/*# sourceMappingURL=sidebar.css.map */

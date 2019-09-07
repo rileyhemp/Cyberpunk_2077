@@ -1,0 +1,49 @@
+@-webkit-keyframes blink {
+	0% {
+		border-right: 3px solid transparent;
+	}
+	100% {
+		border-right: 3px solid #fcee0a;
+	}
+}
+
+@keyframes blink {
+	0% {
+		border-right: 3px solid transparent;
+	}
+	100% {
+		border-right: 3px solid #fcee0a;
+	}
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-filter: opacity(0.25);
+		        filter: opacity(0.25);
+	}
+	30% {
+		-webkit-filter: opacity(1);
+		        filter: opacity(1);
+	}
+	100% {
+		-webkit-filter: opacity(1);
+		        filter: opacity(1);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		-webkit-filter: opacity(0.25);
+		        filter: opacity(0.25);
+	}
+	30% {
+		-webkit-filter: opacity(1);
+		        filter: opacity(1);
+	}
+	100% {
+		-webkit-filter: opacity(1);
+		        filter: opacity(1);
+	}
+}
+
+/*# sourceMappingURL=animations.css.map */

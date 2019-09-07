@@ -9,24 +9,25 @@
 		<link rel="stylesheet" href="dist/css/reset.css">
 		<link rel="stylesheet" href="dist/css/main.css">
 		<link rel="stylesheet" href="dist/css/animations.css">
+		<link rel="stylesheet" href="dist/css/navbar.css">
 		<link href="https://fonts.googleapis.com/css?family=Saira:400,500,600,700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<nav>
-			<img src="./Design Assets/logo-game-yellow.png">
+			<img src="./Design Assets/logo-game-black.png">
 			<div class="hamburger-menu">
 				<div class="burger"></div>
 				<div class="burger"></div>
 				<div class="burger"></div>
 			</div>
 			<ul class="navigation">
-				<li>Home</li>
+				<li class="active">Home</li>
 				<li>About</li>
 				<li>Trailer</li>
 				<li>Characters</li>
 				<li>Wallpaper</li>
 			</ul>
-		</nav>
+		</nav>		
 		<aside class="sm-links">
 			<div class="twitter-link"></div>
 			<div class="insta-link"></div>
@@ -61,7 +62,9 @@
 						</div>
 						<div class="trailer-border"></div>
 						<div class="trailer-container">
-							<div class="overlay"></div>
+							<video loop muted autoplay poster="./Design Assets/preview-frame.jpg" class="fullscreen-video">
+								<source src="./Design Assets/preview-loop.mp4" type="video/mp4">
+							</video>
 							<img src="./Design Assets/hero-bg-static.webp">
 						</div>
 						<i></i>
@@ -71,6 +74,7 @@
 						<button class="watch-trailer">Watch trailer</button>
 					</div>
 					<div class="next-hero-preview">2</div>
+					<div class="hero-divider"></div>
 				</div>	
 				<div class="hero-counter">
 					<button class="previous-slide"></button>

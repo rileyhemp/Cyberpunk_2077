@@ -1,0 +1,112 @@
+nav {
+	position: fixed;
+	width: 100%;
+	padding: 1rem;
+	top: 1rem;
+	z-index: 999;
+}
+
+nav img {
+	width: 10rem;
+	height: auto;
+	cursor: pointer;
+	-o-object-fit: contain;
+	   object-fit: contain;
+	position: absolute;
+}
+
+nav ul {
+	visibility: hidden;
+}
+
+.hamburger-menu {
+	cursor: pointer;
+	position: absolute;
+	right: 1rem;
+	top: 1.4rem;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+	flex-wrap: nowrap;
+	width: 3rem;
+	height: 3rem;
+	overflow: hidden;
+	-webkit-transform: rotateY(180deg) scale(0.8);
+	        transform: rotateY(180deg) scale(0.8);
+}
+
+.hamburger-menu .burger {
+	background-image: url("../../Design Assets/detail-header-bottom-yellow.svg");
+	background-repeat: no-repeat;
+	height: .5rem;
+	background-position-x: -1rem;
+	-webkit-transform: scale(1.5);
+	    -ms-transform: scale(1.5);
+	        transform: scale(1.5);
+	margin-top: 0.2rem;
+}
+
+@media screen and (min-width: 1024px) {
+	nav img {
+		width: 14rem;
+		left: 50%;
+		-webkit-transform: translateX(-50%);
+		    -ms-transform: translateX(-50%);
+		        transform: translateX(-50%);
+	}
+	.hamburger-menu {
+		display: none;
+	}
+	nav ul {
+		visibility: visible;
+		text-transform: uppercase;
+		font-size: 0.75rem;
+		position: fixed;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		    -ms-transform: translateY(-50%);
+		        transform: translateY(-50%);
+		font-weight: 700;
+		margin-left: 1rem;
+	}
+	nav ul li {
+		margin-bottom: 1rem;
+		color: #848484;
+		position: relative;
+		float: left;
+		clear: left;
+		cursor: pointer;
+	}
+	nav ul li.active {
+		color: #252525;
+	}
+	nav ul li.active:before, nav ul li.active:after {
+		content: '';
+		background-image: url("../../Design Assets/small-circle.svg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		height: .3rem;
+		width: .3rem;
+		position: absolute;
+		-webkit-transform: translateY(65%);
+		    -ms-transform: translateY(65%);
+		        transform: translateY(65%);
+	}
+	nav ul li.active:before {
+		left: -.5rem;
+	}
+	nav ul li.active:after {
+		right: -.5rem;
+	}
+	nav ul li:hover {
+		color: #252525;
+		-webkit-transition: color 0.2s;
+		transition: color 0.2s;
+		-webkit-transition: all 0.2s ease;
+		transition: all 0.2s ease;
+	}
+}
+
+/*# sourceMappingURL=navbar.css.map */

@@ -8,7 +8,8 @@
     flex-direction: column;
     width: 3.5rem;
     height: 8.5rem;
-    background: url('../../Design\ Assets/sm-container-yellow.svg');
+    background: url('../../Design\ Assets/sm-container.svg');
+    background-repeat: no-repeat;
     z-index: 200;
     div {
         background-repeat: no-repeat;
@@ -17,17 +18,23 @@
         width: 100%;
         background-position: center;
         cursor: pointer;
+        padding: 2.5%;
         &.twitter-link  {
-            background-image: url('../../Design\ Assets/icon-twitter-black.svg');
+            background-image: url('../../Design\ Assets/icon-twitter.svg');
         }
         &.insta-link {
-            background-image: url('../../Design\ Assets/icon-instagram-black.svg');
+            background-image: url('../../Design\ Assets/icon-instagram.svg');
         }
         &.facebook-link {
-            background-image: url('../../Design\ Assets/icon-facebook-black.svg');
+            background-image: url('../../Design\ Assets/icon-facebook.svg');
         }
         &.youtube-link {
-            background-image: url('../../Design\ Assets/icon-youtube-black.svg');
+            background-image: url('../../Design\ Assets/icon-youtube.svg');
+        }
+        &:hover {
+            filter: brightness(2) saturate(0);
+            transform: scale(1.25);
+            transition: all 0.1s;
         }
     }
     i {
@@ -39,5 +46,11 @@
         border-color: $yellow transparent  transparent transparent ;
         border-style: solid;
         border-width: 16px 0 0 16px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .sm-links {
+        left: 2rem;
     }
 }
