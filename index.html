@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="dist/css/reset.css">
 		<link rel="stylesheet" href="dist/css/main.css">
+		<link rel="stylesheet" href="dist/css/animations.css">
 		<link href="https://fonts.googleapis.com/css?family=Saira:400,500,600,700&display=swap" rel="stylesheet">
 	</head>
 	<body>
@@ -50,19 +51,21 @@
 					<button class="next-slide"></button>
 				</div>			
 				<div class="hero-container">
-					<img src="./Design Assets/hero.png" class="hero">
-					<div class="hero-text">
-						<span class="two">2</span>
-						<span class="zero">0</span>
-						<span class="seven">7</span>
-						<span class="seven">7</span>
+					<div class="centering-div">
+						<img src="./Design Assets/hero.png" class="hero">
+						<div class="hero-text">
+							<span class="two">2</span>
+							<span class="zero">0</span>
+							<span class="seven">7</span>
+							<span class="seven">7</span>
+						</div>
+						<div class="trailer-border"></div>
+						<div class="trailer-container">
+							<div class="overlay"></div>
+							<img src="./Design Assets/hero-bg-static.webp">
+						</div>
+						<i></i>
 					</div>
-					<div class="trailer-border"></div>
-					<div class="trailer">
-						<div class="overlay"></div>
-						<img src="./Design Assets/hero-bg-static.webp">
-					</div>
-					<i></i>
 					<div class="button-container-home">
 						<button class="pre-order">Pre order now</button>
 						<button class="watch-trailer">Watch trailer</button>
@@ -88,7 +91,7 @@
 			<section class="animation-enter container-home"></section>
 		</header>
 		<main>
-			<section class="about container">
+			<section class="about container" data-info="About">
 				<div class="about-hero"></div>
 				<div class="about-content">
 					<h1>The real you is not enough</h1>
@@ -98,9 +101,98 @@
 					</div>
 				</div>
 			</section>
-			<section class="trailer "></section>
-			<section class="characters "></section>
-			<section class="wallpaper "></section>
+			<section class="trailer container" data-info="Trailer">
+				<video loop muted autoplay poster="./Design Assets/preview-frame.jpg" class="fullscreen-video">
+					<source src="./Design Assets/preview-loop.mp4" type="video/mp4">
+				</video>
+				<div class="play-button"></div>
+			</section>
+			<section class="characters container" data-info="Characters">
+				<ul class="slideshow container-no-bg">
+					<div class="breadcrumbs animation-enter">Characters</div>
+					<div class="back-button">Back</div>
+					<li class="slide container v animation-enter">
+						<div class="character-preview v"></div>
+						<div class="character-image v"></div>	
+						<h1 class="character-name">V</h1>		
+						<i class="characters-divider"></i>		
+						<p class="character-description">
+							This is the protagonist, which unlike Geralt in The Witcher 3 , we can customize to start the game with a complex character creation system which allows us to choose their sex (in the E3 demo was a woman) to create a argumental background. We can also choose between different classes: Netrunner , Techie , Solo or a mixture of all of them.
+						</p>	
+					</li>		
+					<li class="slide container-no-bg dexter animation-enter">
+						<div class="character-preview dexter"></div>	
+						<div class="character-image dexter"></div>							
+						<h1 class="character-name">Dexter <br> Deshawn</h1>		
+						<i class="characters-divider"></i>		
+						<p class="character-description">
+								Fixers like Dexter juggle illegal contracts—burglaries, assassinations, kidnappings, trafficking, you name it. And Dex is one of the best fixers in town. Hardly anything goes in Night City that he doesn't know about. He’s got killer intuition and the experience to match – word on the street is anyone who manages their first job for Dex is sure to go far.
+						</p>	
+					</li>	
+					<li class="slide container-no-bg jackie animation-enter">
+						<div class="character-preview jackie"></div>	
+						<div class="character-image jackie"></div>	
+						<h1 class="character-name">Jackie <br> Welles</h1>		
+						<i class="characters-divider"></i>		
+						<p class="character-description">
+							As a teenager Jackie always wanted to be his own master, so he eventually settled on a career as mercenary. Friendship, loyalty and family ties are what drives him. To Jackie, blood is always thicker than water. He’s a rock-solid, composed professional who respects other mercs. Eventually he wants to provide for his own family and live in luxury, but he’s getting impatient because this is still just an elusive dream.
+						</p>	
+					</li>	
+					<li class="slide container-no-bg johnny ">
+						<div class="character-preview johnny"></div>	
+						<div class="character-image johnny"></div>	
+						<div class="character-second-image johnny"></div>
+						<h1 class="character-name">Johnny <br> Silverhand</h1>		
+						<i class="characters-divider"></i>		
+						<p class="character-description">
+								Johnny was a war veteran in Central America, but then he changed his mind to Rocker. He became the leader of the popular Samurai group. He is famous for his musical talent and many short, quickly decaying relationships. His partners were Alt Cunningham and Rogue.
+						</p>	
+					</li>					
+					<button class="read-more">More</button>
+					<div class="character-counter">
+						<button class="previous-slide"></button>
+						<div class="slide-counter">
+							<span class="current-slide">01</span>
+							<span class = "slash">/</span>
+							<span class="total-slides">04</span>
+						</div>
+						<button class="next-slide"></button>
+					</div>
+				</ul>
+			</section>
+			<section class="wallpaper container" data-info="Wallpaper">
+				<div class="breadcrumbs">Wallpaper</div>
+				<ul class="slideshow container-no-bg">
+					<li class="wallpaper-container" >
+						<div class="wallpaper-preview wp-1"></div>
+					</li>
+					<li class="wallpaper-container animation-enter">
+						<div class="wallpaper-preview wp-2"></div>
+					</li>
+					<li class="wallpaper-container animation-enter">
+						<div class="wallpaper-preview wp-3"></div>
+					</li>
+					<li class="wallpaper-container animation-enter">
+						<div class="wallpaper-preview wp-4"></div>
+					</li>
+					<li class="wallpaper-container animation-enter">
+						<div class="wallpaper-preview wp-5"></div>
+					</li>
+					<li class="wallpaper-container animation-enter">
+						<div class="wallpaper-preview wp-6"></div>
+					</li>
+				</ul>
+				<i class="wallpaper-divider"></i>
+				<div class="wallpaper-counter">
+					<button class="previous-slide"></button>
+					<div class="slide-counter">
+						<span class="current-slide">01</span>
+						<span class = "slash">/</span>
+						<span class="total-slides">04</span>
+					</div>
+					<button class="next-slide"></button>
+				</div>				
+			</section>
 		</main>
 
 

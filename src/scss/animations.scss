@@ -1,0 +1,12 @@
+@import "./variables";
+
+@keyframes blink {
+    0% {border-right: 3px solid transparent;}
+    100% {border-right: 3px solid $yellow;}
+}
+
+@keyframes pulse {
+    0% {filter: opacity(.25)}
+    30% {filter: opacity(1)}
+    100% {filter: opacity(1)}
+}
