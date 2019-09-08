@@ -11,6 +11,9 @@
     background: url('../../Design\ Assets/sm-container.svg');
     background-repeat: no-repeat;
     z-index: 200;
+    &.active {
+        background: url('../../Design\ Assets/sm-container-yellow.svg');
+    }
     div {
         background-repeat: no-repeat;
         background-size: contain;
@@ -21,15 +24,27 @@
         padding: 2.5%;
         &.twitter-link  {
             background-image: url('../../Design\ Assets/icon-twitter.svg');
+            .active & {
+                background-image: url('../../Design\ Assets/icon-twitter-black.svg');
+            }
         }
         &.insta-link {
             background-image: url('../../Design\ Assets/icon-instagram.svg');
+            .active & {
+                background-image: url('../../Design\ Assets/icon-instagram-black.svg');
+            }
         }
         &.facebook-link {
             background-image: url('../../Design\ Assets/icon-facebook.svg');
+            .active & {
+                background-image: url('../../Design\ Assets/icon-facebook-black.svg');
+            }
         }
         &.youtube-link {
             background-image: url('../../Design\ Assets/icon-youtube.svg');
+            .active & {
+                background-image: url('../../Design\ Assets/icon-youtube-black.svg');
+            }
         }
         &:hover {
             filter: brightness(2) saturate(0);

@@ -1,0 +1,107 @@
+@import "./variables";
+
+nav {
+    position: fixed;
+    max-width: 1920px;
+    width: 100%;
+    padding: 1rem;
+    top: 1rem;
+    z-index: 999;
+    img {
+        width: 10rem;
+        height: auto;
+        cursor: pointer;
+        object-fit: contain;
+        position: absolute;
+    }
+    ul {
+        visibility: hidden;
+    }
+}
+
+.hamburger-menu {
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    transform: rotateY(180deg) scale(0.8);
+    .burger {
+        background-image: url('../../Design\ Assets/detail-header-bottom-black.svg');
+        background-repeat: no-repeat;
+        height: .5rem;
+        background-position-x: -1rem;
+        transform: scale(1.5);
+        margin-top: 0.2rem;
+    }
+    &.active {
+        .burger {
+            background-image: url('../../Design\ Assets/detail-header-bottom-yellow.svg');
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    nav {
+        img {
+            width: 14rem;
+            left: 50%;
+            transform: translateX(-50%);
+            &.active {
+                content:url("../../Design Assets/logo-game-yellow.png");
+            }
+        }
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    nav ul {
+        visibility: visible;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 700;
+        margin-left: 1rem;
+        li {
+            margin-bottom: 1rem;
+            color: $blue;
+            position: relative;
+            float: left;
+            clear: left;
+            cursor: pointer;
+            &.active {
+                color: $black;
+                &:before, &:after {
+                    content: '';
+                    background-image: url('../../Design\ Assets/small-circle.svg');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    height: .3rem;
+                    width: .3rem;
+                    position: absolute;
+                    transform: translateY(65%);
+                }
+                &:before {
+                    left: -.5rem;
+                }
+                &:after {
+                    right: -.5rem;
+                }
+            }
+            &:hover {
+                color: $black;
+                transition: color 0.2s;
+            }
+        }
+    }
+}
+

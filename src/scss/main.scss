@@ -515,20 +515,23 @@ header {
         margin-top: 0.5rem;
         height: 0.4rem;
         width: 0.4rem;
-        animation: pulse 1.15s alternate infinite linear;
+        //animation: pulse 1.15s alternate infinite linear;
         &:first-child {
-            opacity: 0.25;
+            opacity: 0.33;
             animation-delay: .1;
             //visibility: hidden;
         }
         &:nth-child(2){
-            opacity: 0.50;
+            opacity: 0.66;
             animation-delay: 0.2s;
             //visibility: hidden;
         }
         &:nth-child(3){
             animation-delay: 0.3s;
             //visibility: hidden;
+        }
+        &.active {
+            background-image: url('../../Design\ Assets/small-circle-white.svg');
         }
     }
 }
@@ -547,6 +550,9 @@ header {
     margin-right: 1rem;
     z-index: 999;
     cursor: pointer;
+    &.active {
+        background-image: url('../../Design\ Assets/share-button-yellow.svg');
+    }
 }
 
 .video-overlay {

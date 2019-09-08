@@ -72,7 +72,6 @@ if ( window.innerWidth >= 1024 ) {
     }})
     .addTo(controller)
     
-    
     function aboutScrollFX() {
         var controller = new ScrollMagic.Controller();
         let tl2 = new TimelineMax()
@@ -145,15 +144,7 @@ if ( window.innerWidth >= 1024 ) {
         }, 0.1, '-=.2')
         .staggerFrom([dexter, jackie, johnny], t, {x:800, scale: 0}, 0.1, '-=1')
         .from('.breadcrumbs.char', 0.7, {x:-400},'-=2.5')
-                
-                
-                
-                
-                
-                
-                
-                
-                
+        
         var scene = new ScrollMagic.Scene({
             triggerElement: ".characters"
         })
@@ -180,3 +171,73 @@ if ( window.innerWidth >= 1024 ) {
     }
     wallpaperScrollFX()
 }
+
+var controller = new ScrollMagic.Controller();
+
+var homePage = new ScrollMagic.Scene({triggerElement: 'header', duration: document.querySelector('header').offsetHeight })
+    .setClassToggle("#home", "active") 
+    .addTo(controller);
+
+var aboutPage = new ScrollMagic.Scene({triggerElement: '.about',duration: document.querySelector('.about').offsetHeight})
+    .setClassToggle("#about", "active") 
+    .addTo(controller);
+
+var trailerPage = new ScrollMagic.Scene({triggerElement: '.trailer',duration: document.querySelector('.trailer').offsetHeight})
+    .setClassToggle("#trailer", "active") 
+    .addTo(controller);
+
+var characterPage = new ScrollMagic.Scene({triggerElement: '.characters',duration: document.querySelector('.characters').offsetHeight})
+    .setClassToggle("#characters", "active") 
+    .addTo(controller);
+
+var wallpaperPage = new ScrollMagic.Scene({triggerElement: '.wallpaper',duration: document.querySelector('.wallpaper').offsetHeight})
+    .setClassToggle("#wallpaper", "active") 
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.1)
+    .setClassToggle(".hamburger-menu", "active") 
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.1)
+    .setClassToggle("nav img", "active") 
+    .addTo(controller);
+    
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.9)
+    .setClassToggle(".twitter-link", "active") 
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.9)
+    .setClassToggle(".insta-link", "active") 
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.9)
+    .setClassToggle(".facebook-link", "active") 
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.9)
+    .setClassToggle(".youtube-link", "active") 
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.9)
+    .setClassToggle(".sm-links", "active") 
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.9)
+    .setClassToggle(".share-btn-mobile", "active") 
+    .addTo(controller);
+
+new ScrollMagic.Scene({triggerElement:'.about'})
+    changeColor.triggerHook(0.9)
+    .setClassToggle(".scroll-indicator", "active") 
+    .addTo(controller);
+
+
+
