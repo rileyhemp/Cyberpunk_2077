@@ -104,8 +104,6 @@ nav ul {
 		color: #252525;
 		-webkit-transition: color 0.2s;
 		transition: color 0.2s;
-		-webkit-transition: all 0.2s ease;
-		transition: all 0.2s ease;
 	}
 }
 
