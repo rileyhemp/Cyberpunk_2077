@@ -475,7 +475,7 @@ header {
 }
 
 .hero-text .two {
-	z-index: 1;
+	z-index: 3;
 }
 
 .hero-text .zero {
@@ -525,6 +525,10 @@ header {
 
 .homepage-video {
 	display: none;
+}
+
+.trailer-border {
+	position: absolute;
 }
 
 .trailer-border:before, .trailer-border:after {
@@ -662,6 +666,8 @@ header {
 	margin-top: 0.5rem;
 	height: 0.4rem;
 	width: 0.4rem;
+	-webkit-animation: pulse 1.15s alternate infinite linear;
+	        animation: pulse 1.15s alternate infinite linear;
 }
 
 .scroll-indicator div:first-child {
@@ -1377,6 +1383,10 @@ li.dexter p, li.jackie p, li.johnny p {
 		opacity: 1;
 		z-index: 1;
 	}
+	.fullscreen-video video {
+		background-attachment: fixed;
+		background-size: cover;
+	}
 	.play-button {
 		position: relative;
 	}
@@ -1586,7 +1596,7 @@ li.dexter p, li.jackie p, li.johnny p {
 	.hero-divider:after {
 		content: '';
 		height: 2px;
-		width: 18rem;
+		width: 25rem;
 		-webkit-transform: translateY(-11px) translateX(8px);
 		    -ms-transform: translateY(-11px) translateX(8px);
 		        transform: translateY(-11px) translateX(8px);
@@ -1654,8 +1664,12 @@ li.dexter p, li.jackie p, li.johnny p {
 		width: 22rem;
 		height: 22rem;
 		background-image: url("../../Design Assets/v-stare.jpg");
-		background-size: cover;
-		background-position-x: 30%;
+		background-size: 200%;
+		background-repeat: no-repeat;
+		background-position-x: 20%;
+		-webkit-transform: matrix(1, 0, 0, 1, -300, 0);
+		    -ms-transform: matrix(1, 0, 0, 1, -300, 0);
+		        transform: matrix(1, 0, 0, 1, -300, 0);
 	}
 	.about-image-overlay {
 		position: absolute;

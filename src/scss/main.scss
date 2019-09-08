@@ -357,7 +357,7 @@ header {
         1px  1px 0 $yellow;
     }
     .two {
-        z-index: 1;
+        z-index: 3;
     }
     .zero {
         position: relative;
@@ -404,6 +404,7 @@ header {
 }
 
 .trailer-border {
+    position: absolute;
     &:before, &:after {
         content: '';
         height: .75rem; 
@@ -514,7 +515,7 @@ header {
         margin-top: 0.5rem;
         height: 0.4rem;
         width: 0.4rem;
-        //animation: pulse 1.3s alternate infinite linear;
+        animation: pulse 1.15s alternate infinite linear;
         &:first-child {
             opacity: 0.25;
             animation-delay: .1;
@@ -1272,6 +1273,10 @@ li.dexter, li.jackie, li.johnny {
         mix-blend-mode: hard-light;
         opacity: 1;
         z-index: 1;
+        video {
+            background-attachment: fixed;
+            background-size: cover;
+        }
     }
 
     .play-button {
@@ -1509,7 +1514,7 @@ li.dexter, li.jackie, li.johnny {
         &:after {
             content: '';
             height: 2px;
-            width: 18rem;
+            width: 25rem;
             transform: translateY(-11px) translateX(8px);
             background-color: $red;
             display: inline-block;
@@ -1599,8 +1604,10 @@ li.dexter, li.jackie, li.johnny {
         width: 22rem;
         height: 22rem;
         background-image: url('../../Design\ Assets/v-stare.jpg');
-        background-size: cover;
-        background-position-x: 30%;
+        background-size: 200%;
+        background-repeat: no-repeat;
+        background-position-x: 20%;
+        transform: matrix(1, 0, 0, 1, -300, 0)
     }
 
     .about-image-overlay {
