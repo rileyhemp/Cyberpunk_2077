@@ -72,10 +72,13 @@
 
 html {
 	font-family: 'Saira', sans-serif;
+	background-color: black;
 }
 
 body {
 	background-color: black;
+	max-width: 1920px;
+	margin: auto;
 }
 
 h1 {
@@ -494,7 +497,7 @@ header {
 	overflow: hidden;
 	margin-left: 4.5rem;
 	height: 20rem;
-	width: 40rem;
+	width: 45rem;
 	position: relative;
 	-webkit-filter: brightness(0.8) hue-rotate(113deg);
 	        filter: brightness(0.8) hue-rotate(113deg);
@@ -1306,7 +1309,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		font-size: 8rem;
 	}
 	.centering-div {
-		margin: 0 auto 0 20%;
+		margin: 0 auto 0 21%;
 	}
 	.hero-text {
 		font-size: 12rem;
@@ -1459,7 +1462,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		margin-left: 3.75rem;
 		height: 34rem;
 		width: 80vw;
-		left: -5rem;
+		left: -4.8rem;
 	}
 	.hero-container {
 		height: 23rem;
@@ -1570,7 +1573,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		    -ms-transform-origin: 0% 0%;
 		        transform-origin: 0% 0%;
 		bottom: -4.25rem;
-		right: 29rem;
+		right: 45%;
 		-webkit-transform: scaleX(1.25) scaleY(1);
 		    -ms-transform: scaleX(1.25) scaleY(1);
 		        transform: scaleX(1.25) scaleY(1);
@@ -1583,7 +1586,7 @@ li.dexter p, li.jackie p, li.johnny p {
 	.hero-divider:after {
 		content: '';
 		height: 2px;
-		width: 15rem;
+		width: 18rem;
 		-webkit-transform: translateY(-11px) translateX(8px);
 		    -ms-transform: translateY(-11px) translateX(8px);
 		        transform: translateY(-11px) translateX(8px);
@@ -1711,9 +1714,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		width: 19rem;
 		height: 22rem;
 		margin-top: -2rem;
-		grid-column: unset;
-		position: absolute;
-		right: 65%;
+		grid-column: 2 /4;
 	}
 	.expanded-description .character-preview, .expanded-description .character-preview-overlay {
 		-webkit-transform: translateX(0) translateY(0);
@@ -1746,6 +1747,11 @@ li.dexter p, li.jackie p, li.johnny p {
 		background-image: url("../../Design Assets/johnny-2.jpg");
 		background-size: cover;
 		background-position-y: 0%;
+	}
+	.character-counter {
+		grid-column: 2 / 5;
+		justify-self: start;
+		margin-left: 23rem;
 	}
 	.expanded-description .back-button {
 		grid-row: 7;
@@ -1797,8 +1803,8 @@ li.dexter p, li.jackie p, li.johnny p {
 		visibility: hidden;
 	}
 	.character-name, .character-description, .characters-divider {
-		grid-column: 3;
-		margin-left: 4rem;
+		grid-column: 2 / 6;
+		margin-left: 23rem;
 		margin-top: 3rem;
 	}
 	.character-name {
@@ -1829,6 +1835,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		-webkit-line-clamp: 3;
 		max-height: 4.5rem;
 		word-break: break-word;
+		z-index: 10;
 	}
 	.expanded-description .character-description {
 		margin-top: 10rem;
@@ -1845,8 +1852,8 @@ li.dexter p, li.jackie p, li.johnny p {
 	}
 	.read-more {
 		grid-row: 5;
-		grid-column: 3;
-		margin-left: 8.5rem;
+		grid-column: 2;
+		margin-left: 27.5rem;
 		margin-top: 5.5rem;
 	}
 	.character-preview.dexter, .character-preview.jackie, .character-preview.johnny {
@@ -1865,10 +1872,10 @@ li.dexter p, li.jackie p, li.johnny p {
 		margin: .5rem 0;
 		-webkit-filter: brightness(0.85);
 		        filter: brightness(0.85);
-		grid-column: 4;
+		grid-column: 2 / 5;
+		margin-left: 25rem;
 		grid-row: 7;
 		margin-top: 6rem;
-		margin-left: -1rem;
 	}
 	.character-counter-divider:after {
 		content: '';
@@ -1884,9 +1891,10 @@ li.dexter p, li.jackie p, li.johnny p {
 		grid-template-columns: repeat(6, 1fr);
 	}
 	.characters .slide.animation-enter {
-		-webkit-transform: translateX(50vw);
-		    -ms-transform: translateX(50vw);
-		        transform: translateX(50vw);
+		left: 800px;
+		-webkit-transform: translateX(0);
+		    -ms-transform: translateX(0);
+		        transform: translateX(0);
 	}
 	.characters .slide.animation-enter .character-image, .characters .slide.animation-enter .character-name, .characters .slide.animation-enter .characters-divider, .characters .slide.animation-enter .character-description {
 		-webkit-transform: translateX(50vw);
@@ -2000,7 +2008,7 @@ li.dexter p, li.jackie p, li.johnny p {
 	.hero {
 		height: 50rem;
 		top: -13rem;
-		left: -11rem;
+		left: -13rem;
 		-webkit-transform: translateY(1px);
 		    -ms-transform: translateY(1px);
 		        transform: translateY(1px);
@@ -2008,7 +2016,7 @@ li.dexter p, li.jackie p, li.johnny p {
 	}
 	.trailer-container {
 		top: -7rem;
-		margin-left: 8.75rem;
+		margin-left: 6.75rem;
 		height: 44rem;
 		width: 70vw;
 	}
@@ -2020,7 +2028,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		-webkit-transform: scale(3.5);
 		    -ms-transform: scale(3.5);
 		        transform: scale(3.5);
-		left: 4rem;
+		left: 2rem;
 		z-index: 2;
 		border-width: 68px 0 0 69px;
 	}
@@ -2034,7 +2042,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		width: 40rem;
 		height: 2rem;
 		top: 1rem;
-		left: -16.5rem;
+		left: -18.5rem;
 	}
 	.homepage-video {
 		display: block;
@@ -2055,40 +2063,43 @@ li.dexter p, li.jackie p, li.johnny p {
 	.hero-text span {
 		margin-right: 6rem;
 	}
+	.hero-text:before {
+		content: "Select Platform";
+		text-transform: uppercase;
+		position: absolute;
+		left: 51%;
+		top: -6.7rem;
+		-webkit-transform: translateY(-50%);
+		    -ms-transform: translateY(-50%);
+		        transform: translateY(-50%);
+		font-weight: 400;
+		font-size: .875rem;
+		opacity: 0.7;
+		color: white;
+		z-index: 10;
+	}
+	.platform-spacer {
+		background-color: white;
+		height: 1px;
+		width: 10px;
+		position: absolute;
+		top: -12px;
+		left: 590px;
+		z-index: 10;
+		opacity: 0.7;
+	}
 	.platform-select {
 		grid-row: 3 / span 4;
 		grid-column: 4 /span 4;
 		margin-top: -2rem;
-		margin-left: 4rem;
+		margin-left: auto;
+		margin-right: -2rem;
 		-webkit-filter: invert(1);
 		        filter: invert(1);
 		-webkit-transform: scale(0.9);
 		    -ms-transform: scale(0.9);
 		        transform: scale(0.9);
-	}
-	.platform-select:before {
-		content: "Select Platform";
-		text-transform: uppercase;
-		position: absolute;
-		left: 5rem;
-		top: 50%;
-		-webkit-transform: translateY(-50%);
-		    -ms-transform: translateY(-50%);
-		        transform: translateY(-50%);
-		font-weight: 700;
-		opacity: 0.7;
-	}
-	.platform-select:after {
-		content: '';
-		position: absolute;
-		height: 1px;
-		width: 6.5vw;
-		background-color: black;
-		opacity: 0.7;
-		top: 49%;
-		left: 15rem;
-		-webkit-transition: all 0.2s;
-		transition: all 0.2s;
+		max-width: 27rem;
 	}
 	.platform-select .platform:before, .platform-select .platform:after {
 		-webkit-filter: invert(1);
@@ -2098,6 +2109,9 @@ li.dexter p, li.jackie p, li.johnny p {
 		-webkit-filter: invert(1);
 		        filter: invert(1);
 	}
+	.platform-select .platform {
+		margin-right: 1rem;
+	}
 	.platform-select .platform.xbox {
 		margin-left: 0.5rem;
 	}
@@ -2105,14 +2119,14 @@ li.dexter p, li.jackie p, li.johnny p {
 		background-size: 2rem;
 	}
 	.platform-select .platform.animation-enter {
-		-webkit-transform: translateX(8vw);
-		    -ms-transform: translateX(8vw);
-		        transform: translateX(8vw);
+		-webkit-transform: translateX(0);
+		    -ms-transform: translateX(0);
+		        transform: translateX(0);
 	}
 	.platform-select .platform.animation-off-right {
-		-webkit-transform: translateX(16vw);
-		    -ms-transform: translateX(16vw);
-		        transform: translateX(16vw);
+		-webkit-transform: translateX(0);
+		    -ms-transform: translateX(0);
+		        transform: translateX(0);
 		visibility: visible;
 	}
 }
@@ -2137,9 +2151,9 @@ li.dexter p, li.jackie p, li.johnny p {
 
 @media screen and (min-width: 1550px) {
 	.button-container-home {
-		-webkit-transform: translateX(-0.5rem) translateY(5.5rem);
-		    -ms-transform: translateX(-0.5rem) translateY(5.5rem);
-		        transform: translateX(-0.5rem) translateY(5.5rem);
+		-webkit-transform: translateX(-14.5rem) translateY(4.5rem);
+		    -ms-transform: translateX(-14.5rem) translateY(4.5rem);
+		        transform: translateX(-14.5rem) translateY(4.5rem);
 	}
 	.trailer-container img {
 		display: none;
