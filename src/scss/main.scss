@@ -9,6 +9,7 @@
 html {
     font-family: 'Saira', sans-serif;
     background-color: black;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -57,7 +58,7 @@ header {
     margin-top: 2rem;
     z-index: 100;
     padding: 0 .5rem;
-    cursor: pointer;
+    cursor: default;
     border-left: 3px solid $yellow;
     border-right: 3px solid $yellow;
     place-self: start start;
@@ -508,6 +509,19 @@ header {
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+        filter: brightness(2.5);
+    }
+    &.active {
+        &:hover {
+            filter: brightness(.75);
+        }
+        div {
+            background-image: url('../../Design\ Assets/small-circle-white.svg');
+
+        }
+    }
     div {
         background-image: url('../../Design\ Assets/small-circle.svg');
         background-size: contain;
@@ -515,6 +529,7 @@ header {
         margin-top: 0.5rem;
         height: 0.4rem;
         width: 0.4rem;
+        
         //animation: pulse 1.15s alternate infinite linear;
         &:first-child {
             opacity: 0.33;
@@ -525,13 +540,12 @@ header {
             opacity: 0.66;
             animation-delay: 0.2s;
             //visibility: hidden;
+            transform: scale(1.15);
         }
         &:nth-child(3){
             animation-delay: 0.3s;
             //visibility: hidden;
-        }
-        &.active {
-            background-image: url('../../Design\ Assets/small-circle-white.svg');
+            transform: scale(1.25);
         }
     }
 }
@@ -713,6 +727,7 @@ header {
         width: 4rem;
         cursor: pointer;
         z-index: 1;
+        
         &:after {
             content: '';
             background-color: $red;
@@ -723,6 +738,11 @@ header {
             top: 50%;
             left: 3.75rem;
             z-index: 1;
+            pointer-events: none;
+        }
+        &:hover {
+            filter: contrast(2);
+            transition: all 0.2s;
         }
     }
 }
@@ -738,13 +758,13 @@ header {
 
 
 
-     //*********  PAGE 4  *********//
+//*********  PAGE 4  *********//
 
 
 
 
 
-          //****  PAGE 4  ****//      
+//****  PAGE 4  ****//      
 
 
 
@@ -787,6 +807,7 @@ header {
 }
 
 
+
 .character-preview {
     margin-top: 1.5rem;
     grid-row: 2 / span 3;
@@ -800,6 +821,8 @@ header {
     max-width: 15.25rem;
     z-index: 1;
     box-shadow: inset 0px 0px 20px 0px $red;
+    cursor: pointer;
+    transition: all 2s;
     &.v {
         background-image: url('../../Design\ Assets/v-female-dark-background.png');
         filter: brightness(1.125);
@@ -827,6 +850,9 @@ header {
     }
     .expanded-description & {
         transform: translateY(1rem) translateX(-100vw);
+    }
+    &:hover {
+        transform: scale(1.02)
     }
 }
 
@@ -1100,15 +1126,17 @@ li.dexter, li.jackie, li.johnny {
 }
 
 .wallpaper-preview {
+    cursor: pointer;
     width: 100%;
     height: 100%;
     max-width: 30rem;
     max-height: 30rem;
-    background-size: cover;
+    background-size: 200%;
     position: absolute;
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: center;
+    transition: background-size 1s;
     clip-path: polygon(5% 0, 95% 0, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0 95%, 0 5%);
     &.wp-1 {
         background-image: url('../../Design\ Assets/wallpaper-one.jpg');
@@ -1127,6 +1155,9 @@ li.dexter, li.jackie, li.johnny {
     }
     &.wp-6 {
         background-image: url('../../Design\ Assets/wallpaper-six.jpg');
+    }
+    &:hover {
+        background-size: 220%;
     }
 }
 
@@ -1300,6 +1331,7 @@ li.dexter, li.jackie, li.johnny {
             border-right: 3px solid $yellow;
             padding: 0 5px;
             animation: blink 0.5s infinite;
+            pointer-events: none;
         }
     }
 
@@ -1387,17 +1419,16 @@ li.dexter, li.jackie, li.johnny {
     }
 
     .hero {
-        height: 44rem;
-        top: -11rem;
-        left: -17rem;
-        transform: translateY(-2px);
+        height: 43rem;
+        top: -8rem;
+        left: -194px;
         content:url("../../Design\ Assets/hero-fullscreen.png");
     }
     
     .trailer-container {
-        top: -1rem;
-        margin-left: 3.75rem;
-        height: 34rem;
+        top: -7rem;
+        margin-left: 6.75rem;
+        height: 42rem;
         width: 80vw;
         left: -4.8rem;
     }
@@ -1406,24 +1437,30 @@ li.dexter, li.jackie, li.johnny {
         height: 23rem;
     }
 
+    .platform-counter {
+        display: none;
+    }
+
     .hero-container i {
-        bottom: 2rem;
+        bottom: 0rem;
         transform: scale(2);
-        left: -4rem;
+        left: -124px;
+        margin-left: 7.5rem;
     }
 
     .trailer-border {
         &:before {
             height: 2rem;
             width: 48rem;
-            top: -2rem;
+            top: 0rem;
             left: -16rem;
+            display: none;
         }
         &:after {
             width: 39rem;
             height: 2rem;
-            top: -3rem;
-            left: -20.5rem;
+            top: 3rem;
+            left: -21.5rem;
         }
     }
 
@@ -2062,10 +2099,9 @@ li.dexter, li.jackie, li.johnny {
     }
 
     .hero {
-        height: 50rem;
-        top: -13rem;
-        left: -13rem;
-        transform: translateY(1px);
+        height: 45rem;
+        top: -10rem;
+        left: -12rem;
         content:url("../../Design\ Assets/hero-fullscreen.png");
     }
     
@@ -2073,7 +2109,6 @@ li.dexter, li.jackie, li.johnny {
         top: -7rem;
         margin-left: 6.75rem;
         height: 44rem;
-        width: 70vw;
     }
 
     .hero-container {
@@ -2083,7 +2118,7 @@ li.dexter, li.jackie, li.johnny {
     .hero-container i {
         bottom: 5.6rem;
         transform: scale(3.5);
-        left: 2rem;
+        left: -14px;
         z-index: 2;
         border-width: 68px 0 0 69px;
     }
@@ -2094,6 +2129,7 @@ li.dexter, li.jackie, li.johnny {
             width: 40rem;
             top: -8rem;
             left: -8rem;
+            display: block;
         }
         &:after {
             width: 40rem;
@@ -2147,7 +2183,7 @@ li.dexter, li.jackie, li.johnny {
         top: -12px;
         left: 590px;
         z-index: 10;
-        opacity: 0.7;
+        opacity: 0.5;
     }
 
     .platform-select {
@@ -2182,24 +2218,9 @@ li.dexter, li.jackie, li.johnny {
             }
         }
     }
-    @media screen and (max-width: 1825px) {
-        .platform-select:after {
-            width: 5.5vw;
-        }
-    }
-    @media screen and (max-width: 1750px) {
-        .platform-select:after {
-            width: 4.2vw;
-        }
-    }
-    @media screen and (max-width: 1650px) {
-        .platform-select:after {
-            width: 2.8vw;
-        }
-    }
 
     .button-container-home {
-        transform: translateX(-14.5rem) translateY(4.5rem);
+        transform: translateX(-14.5rem) translateY(3rem);
     }
 
     .trailer-container {
@@ -2273,5 +2294,13 @@ li.dexter, li.jackie, li.johnny {
             left: 70%;
             z-index: -1;
         }
+    }
+
+    .about-content {
+        margin-right:18%;
+    }
+
+    .about-hero {
+        right: 140px;
     }
 }

@@ -113,6 +113,17 @@ nav ul {
 		-webkit-transition: color 0.2s;
 		transition: color 0.2s;
 	}
+	nav ul #about.active, nav ul #trailer.active, nav ul #characters.active, nav ul #wallpaper.active {
+		color: #fe003c;
+		text-shadow: 0px 0px 3px rgba(254, 0, 60, 0.5);
+	}
+	nav ul #about.active:hover, nav ul #trailer.active:hover, nav ul #characters.active:hover, nav ul #wallpaper.active:hover {
+		color: #fcee0a;
+		text-shadow: none;
+	}
+	nav ul #about.active:before, nav ul #about.active:after, nav ul #trailer.active:before, nav ul #trailer.active:after, nav ul #characters.active:before, nav ul #characters.active:after, nav ul #wallpaper.active:before, nav ul #wallpaper.active:after {
+		background-image: url("../../Design Assets/small-circle-red.svg");
+	}
 }
 
 /*# sourceMappingURL=navbar.css.map */

@@ -101,6 +101,18 @@ nav {
                 color: $black;
                 transition: color 0.2s;
             }
+        } #about, #trailer, #characters, #wallpaper {
+            &.active {
+                color: $red;
+                text-shadow: 0px 0px 3px rgba(254,0,60,.5);
+                &:hover {
+                    color: $yellow;
+                    text-shadow: none;
+                }
+                &:before, &:after {
+                    background-image: url('../../Design\ Assets/small-circle-red.svg');
+                }
+            }
         }
     }
 }

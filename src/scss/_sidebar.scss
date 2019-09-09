@@ -22,27 +22,35 @@
         background-position: center;
         cursor: pointer;
         padding: 2.5%;
+        position: relative;
+        pointer-events: all
+        a {
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            z-index: 1000;
+        }
         &.twitter-link  {
             background-image: url('../../Design\ Assets/icon-twitter.svg');
-            .active & {
+            &.active {
                 background-image: url('../../Design\ Assets/icon-twitter-black.svg');
             }
         }
         &.insta-link {
             background-image: url('../../Design\ Assets/icon-instagram.svg');
-            .active & {
+            &.active {
                 background-image: url('../../Design\ Assets/icon-instagram-black.svg');
             }
         }
         &.facebook-link {
             background-image: url('../../Design\ Assets/icon-facebook.svg');
-            .active & {
+            &.active {
                 background-image: url('../../Design\ Assets/icon-facebook-black.svg');
             }
         }
         &.youtube-link {
             background-image: url('../../Design\ Assets/icon-youtube.svg');
-            .active & {
+            &.active {
                 background-image: url('../../Design\ Assets/icon-youtube-black.svg');
             }
         }
