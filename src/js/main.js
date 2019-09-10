@@ -105,7 +105,7 @@ if ( window.innerWidth >= 1024 ) {
     .staggerFrom(navigation, .75, {opacity: 0, left: 200}, 0.2, 1.5)
     .from('.hero-divider', .8, {ease: Power3.easeInOut,css:{right:"-111%"}}, 3.75)
     .from('.hero-counter', .2, {ease: Power3.easeInOut,scale: 0}, 4)
-    .from('.next-hero-preview', 1, {ease: Power3.easeInOut,x:300}, 3.5)
+    .from('.next-hero-preview', .5, {ease: Power3.easeInOut,x:300}, 3.5)
     .from('.platform-select', 0.8, {left:3000}, 3.5)
     .from('.sm-links', 0.7, {left: -100}, 3.5)
     .from('.platform-spacer', 0.5, {width: 30}, 4)
@@ -203,7 +203,7 @@ if ( window.innerWidth >= 1024 ) {
         )
         .addTo(controller)
     }
-    characterScrollFX()
+    //characterScrollFX()
 
     function wallpaperScrollFX() {
         var controller = new ScrollMagic.Controller();
@@ -215,14 +215,6 @@ if ( window.innerWidth >= 1024 ) {
             timeline.staggerFrom('.wallpaper-container', .7, {
                 ease: Power1.easeInOut,
                 right: -1000}, .2)   
-            .from('.wallpaper-divider', 1, {
-                ease: Power3.easeInOut,
-                right: -500},)
-            .from('.wallpaper-counter', 1, {
-                ease: Power3.easeInOut,
-                css:{
-                    marginLeft: '3000px'
-                }},)
             .from('.breadcrumbs.wall', 0.7, {
                 ease: Power1.easeInOut,
                 x:-400},)           
@@ -464,3 +456,51 @@ previousHeroButton.addEventListener('click', function(){
     }
 })
 
+document.querySelector('.read-more').addEventListener('click', function(){
+    document.querySelector('.characters .slideshow').classList.add('expanded-description')
+})
+
+document.querySelector('.back-button').addEventListener('click', function(){
+    document.querySelector('.characters .slideshow').classList.remove('expanded-description')
+})
+
+let characterSlides = [].slice.call(document.querySelectorAll('.characters .slideshow .slide'))
+let nextCharacter = document.querySelector('.character-counter .next-slide')
+let prevCharacter = document.querySelector('.character-counter .previous-slide')
+let currentCharacterIndex = 1
+
+nextCharacter.addEventListener('click', function(){
+    if (currentCharacterIndex < 4){
+        currentCharacterIndex++
+    } else {
+        currentCharacterIndex = 1
+    }
+    document.querySelector('.character-counter .slide-counter .current-slide').innerText = `0${currentCharacterIndex}`
+    characterSlides.push(characterSlides.splice(0, 1)[0])
+    characterSlides[0].classList.remove('animation-enter', 'animation-coming-next')
+    characterSlides[1].classList.remove('animation-coming-second')
+    characterSlides[1].classList.add('animation-coming-next')
+    characterSlides[2].classList.remove('animation-coming-third')
+    characterSlides[2].classList.add('animation-coming-second')
+    characterSlides[3].classList.add('animation-enter', 'animation-coming-third')
+})
+
+
+let wallpaperSlides = [].slice.call(document.querySelectorAll('.wallpaper-container'))
+let nextWallpaper = document.querySelector('.wallpaper-counter .next-slide')
+let currentWallpaperIndex = 1
+
+nextWallpaper.addEventListener('click', function(){
+    if (currentWallpaperIndex < 6){
+        currentWallpaperIndex++
+    } else {
+        currentWallpaperIndex = 1
+    }
+    document.querySelector('.wallpaper-counter .slide-counter .current-slide').innerText = `0${currentWallpaperIndex}`
+    wallpaperSlides.push(wallpaperSlides.splice(0, 1)[0])
+    let currentWallpaper = wallpaperSlides[5]
+    wallpaperSlides[5].remove
+    document.querySelector('.wallpaper .slideshow').appendChild(currentWallpaper)
+    wallpaperSlides[0].classList.remove('animation-enter')
+    wallpaperSlides[5].classList.add('animation-enter')
+})

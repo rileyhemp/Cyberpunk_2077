@@ -1027,7 +1027,6 @@ header {
 	max-width: 15.25rem;
 	z-index: 1;
 	box-shadow: inset 0px 0px 20px 0px #fe003c;
-	cursor: pointer;
 }
 
 .character-preview.v {
@@ -1274,9 +1273,6 @@ li.dexter p, li.jackie p, li.johnny p {
 	background-image: url("../../Design Assets/button-outline-yellow.svg");
 	background-repeat: no-repeat;
 	background-color: transparent;
-	-webkit-transform: translateX(-10%) scaleX(1.1);
-	    -ms-transform: translateX(-10%) scaleX(1.1);
-	        transform: translateX(-10%) scaleX(1.1);
 	background-size: contain;
 	border: none;
 	outline: none;
@@ -1290,6 +1286,8 @@ li.dexter p, li.jackie p, li.johnny p {
 	-webkit-transform: translateX(-50%) translateY(75%);
 	    -ms-transform: translateX(-50%) translateY(75%);
 	        transform: translateX(-50%) translateY(75%);
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
 }
 
 .expanded-description .read-more {
@@ -1870,6 +1868,10 @@ li.dexter p, li.jackie p, li.johnny p {
 		-webkit-filter: opacity(0.4);
 		        filter: opacity(0.4);
 	}
+	.characters .slideshow li {
+		-webkit-transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0;
+		transition: all 0.4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0;
+	}
 	.breadcrumbs.animation-enter {
 		-webkit-transform: translateX(0);
 		    -ms-transform: translateX(0);
@@ -1920,7 +1922,8 @@ li.dexter p, li.jackie p, li.johnny p {
 		margin-left: 23rem;
 	}
 	.expanded-description .back-button {
-		grid-row: 7;
+		grid-row: 6;
+		margin-top: 0;
 	}
 	.slide.animation-coming-next {
 		z-index: 3;
@@ -1995,7 +1998,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		margin-top: 5.5rem;
 	}
 	.character-description {
-		margin-top: 0rem;
+		margin-top: -0rem;
 		grid-row: 5;
 		max-width: 25rem;
 		-webkit-line-clamp: 3;
@@ -2004,8 +2007,8 @@ li.dexter p, li.jackie p, li.johnny p {
 		z-index: 10;
 	}
 	.expanded-description .character-description {
-		margin-top: 10rem;
-		margin-left: -2rem;
+		margin-top: 8rem;
+		margin-left: 18rem;
 		max-height: 100%;
 		max-width: 35rem;
 		overflow: visible;
@@ -2063,12 +2066,15 @@ li.dexter p, li.jackie p, li.johnny p {
 		        transform: translateX(0);
 	}
 	.characters .slide.animation-enter .character-image, .characters .slide.animation-enter .character-name, .characters .slide.animation-enter .characters-divider, .characters .slide.animation-enter .character-description {
-		-webkit-transform: translateX(50vw);
-		    -ms-transform: translateX(50vw);
-		        transform: translateX(50vw);
+		-webkit-transform: translateX(60vw);
+		    -ms-transform: translateX(60vw);
+		        transform: translateX(60vw);
 	}
 	.characters .slide.animation-enter .character-preview {
 		box-shadow: none;
+	}
+	.character-name {
+		line-height: 3rem;
 	}
 	.expanded-description .character-image.v {
 		width: 46%;
@@ -2117,6 +2123,8 @@ li.dexter p, li.jackie p, li.johnny p {
 		position: relative;
 		margin: 0;
 		height: 25rem;
+		-webkit-filter: brightness(1);
+		        filter: brightness(1);
 		width: 25rem;
 		-webkit-transform: translateY(0);
 		    -ms-transform: translateY(0);
@@ -2136,16 +2144,12 @@ li.dexter p, li.jackie p, li.johnny p {
 		-webkit-transform: translateX(0);
 		    -ms-transform: translateX(0);
 		        transform: translateX(0);
+		-webkit-filter: brightness(0.5);
+		        filter: brightness(0.5);
 	}
 	.wallpaper-container .wallpaper-preview {
 		-webkit-clip-path: polygon(2.5% 0, 97.5% 0, 100% 2.5%, 100% 97.5%, 97.5% 100%, 2.5% 100%, 0 97.5%, 0 2.5%);
 		        clip-path: polygon(2.5% 0, 97.5% 0, 100% 2.5%, 100% 97.5%, 97.5% 100%, 2.5% 100%, 0 97.5%, 0 2.5%);
-		-webkit-filter: brightness(0.5);
-		        filter: brightness(0.5);
-	}
-	.wallpaper-container .wallpaper-preview.active {
-		-webkit-filter: brightness(1);
-		        filter: brightness(1);
 	}
 	.wallpaper-divider {
 		grid-column: 3;
@@ -2385,6 +2389,34 @@ li.dexter p, li.jackie p, li.johnny p {
 		-webkit-transform: scale(2.25) translateY(-1.5rem) translateX(-1.5rem);
 		    -ms-transform: scale(2.25) translateY(-1.5rem) translateX(-1.5rem);
 		        transform: scale(2.25) translateY(-1.5rem) translateX(-1.5rem);
+	}
+	li.dexter h1, li.jackie h1, li.johnny h1 {
+		font-size: 2.5rem;
+		margin-top: -2rem;
+	}
+	.expanded-description li.dexter h1, .expanded-description li.jackie h1, .expanded-description li.johnny h1 {
+		margin-left: 21rem;
+		margin-top: 8rem;
+	}
+	li.dexter .characters-divider, li.jackie .characters-divider, li.johnny .characters-divider {
+		margin-top: -6rem;
+	}
+	.expanded-description li.dexter .characters-divider, .expanded-description li.jackie .characters-divider, .expanded-description li.johnny .characters-divider {
+		margin-top: 4rem;
+	}
+	li.dexter p, li.jackie p, li.johnny p {
+		margin-top: 0;
+	}
+	.expanded-description .character-name {
+		margin-left: 21rem;
+		margin-top: 10rem;
+	}
+	.expanded-description .character-description {
+		margin-top: 9rem;
+		margin-left: 21rem;
+	}
+	.expanded-description .characters-divider {
+		margin-left: 21rem;
 	}
 }
 

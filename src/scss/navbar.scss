@@ -109,6 +109,9 @@ nav {
                 &:hover {
                     color: $yellow;
                     text-shadow: none;
+                    &:before, &:after {
+                        background-image: url('../../Design\ Assets/small-circle-yellow.svg');
+                    }
                 }
                 &:before, &:after {
                     background-image: url('../../Design\ Assets/small-circle-red.svg');

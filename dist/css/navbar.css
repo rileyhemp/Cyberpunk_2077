@@ -122,6 +122,9 @@ nav ul {
 		color: #fcee0a;
 		text-shadow: none;
 	}
+	nav ul #about.active:hover:before, nav ul #about.active:hover:after, nav ul #trailer.active:hover:before, nav ul #trailer.active:hover:after, nav ul #characters.active:hover:before, nav ul #characters.active:hover:after, nav ul #wallpaper.active:hover:before, nav ul #wallpaper.active:hover:after {
+		background-image: url("../../Design Assets/small-circle-yellow.svg");
+	}
 	nav ul #about.active:before, nav ul #about.active:after, nav ul #trailer.active:before, nav ul #trailer.active:after, nav ul #characters.active:before, nav ul #characters.active:after, nav ul #wallpaper.active:before, nav ul #wallpaper.active:after {
 		background-image: url("../../Design Assets/small-circle-red.svg");
 	}
