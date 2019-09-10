@@ -218,6 +218,24 @@ header {
 	overflow: hidden;
 }
 
+#video-fullscreen {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	height: 100%;
+	z-index: 5000;
+	visibility: hidden;
+	opacity: 0;
+}
+
+#video-fullscreen.fullscreen {
+	visibility: visible;
+	opacity: 1;
+}
+
 .container-home {
 	background: #fcee0a;
 	height: 100vh;
@@ -271,6 +289,11 @@ header {
 	cursor: pointer;
 }
 
+.platform-select .platform:hover {
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
 .platform-select .platform.ps4 {
 	background-image: url("../../Design Assets/logo-ps4.svg");
 }
@@ -322,7 +345,9 @@ header {
 	visibility: hidden;
 }
 
-.platform-select .platform:before, .platform-select .platform:after {
+.platform-select .platform.selected:before, .platform-select .platform.selected:after {
+	-webkit-animation: dot-fade-in .75s ease-out;
+	        animation: dot-fade-in .75s ease-out;
 	content: "";
 	position: absolute;
 	height: 100%;
@@ -336,11 +361,11 @@ header {
 	background-repeat: no-repeat;
 }
 
-.platform-select .platform:before {
+.platform-select .platform.selected:before {
 	left: -1.5rem;
 }
 
-.platform-select .platform:after {
+.platform-select .platform.selected:after {
 	right: -1.5rem;
 }
 
@@ -352,11 +377,25 @@ header {
 	-webkit-transform: translateY(-7px) scaleY(0.7);
 	    -ms-transform: translateY(-7px) scaleY(0.7);
 	        transform: translateY(-7px) scaleY(0.7);
-	overflow: hidden;
+}
+
+.platform-select .platform-animation.xbox {
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-7px) scaleY(0.7);
+	    -ms-transform: translateX(-50%) translateY(-7px) scaleY(0.7);
+	        transform: translateX(-50%) translateY(-7px) scaleY(0.7);
+}
+
+.platform-select .platform-animation.pc {
+	left: 100%;
+	-webkit-transform: translateX(-120%) translateY(-7px) scaleY(0.7);
+	    -ms-transform: translateX(-120%) translateY(-7px) scaleY(0.7);
+	        transform: translateX(-120%) translateY(-7px) scaleY(0.7);
 }
 
 .platform-select .platform-animation:before, .platform-select .platform-animation:after {
 	content: '';
+	background-position-x: 65%;
 	background-image: url("../../Design Assets/detail-header-bottom-red.svg");
 	background-repeat: no-repeat;
 	-webkit-transform: scaleX(1.5);
@@ -365,18 +404,31 @@ header {
 	width: 4rem;
 	height: 100%;
 	position: absolute;
+	opacity: 0;
+	-webkit-transition: all 200ms cubic-bezier(0.8, 0, 0.8, 1);
+	transition: all 200ms cubic-bezier(0.8, 0, 0.8, 1);
 }
 
 .platform-select .platform-animation:before {
 	-webkit-transform: rotateY(180deg) translateX(-8%) rotateX(180deg);
 	        transform: rotateY(180deg) translateX(-8%) rotateX(180deg);
-	background-position-x: -19%;
 }
 
 .platform-select .platform-animation:after {
 	-webkit-transform: translateX(71%) rotateX(180deg);
 	        transform: translateX(71%) rotateX(180deg);
-	background-position-x: -20%;
+}
+
+.platform-select .platform-animation.selected:before, .platform-select .platform-animation.selected:after {
+	opacity: 1;
+	background-position-x: -19%;
+}
+
+.platform-select .platform-animation.hovered:before, .platform-select .platform-animation.hovered:after {
+	opacity: 1;
+	background-position-x: -19%;
+	-webkit-transition: all 200ms cubic-bezier(0.8, 0, 0.8, 1);
+	transition: all 200ms cubic-bezier(0.8, 0, 0.8, 1);
 }
 
 .platform-counter, .hero-counter, .character-counter, .wallpaper-counter {
@@ -486,6 +538,13 @@ header {
 	    -ms-transform: scale(1.05);
 	        transform: scale(1.05);
 	height: 22rem;
+}
+
+.hero.animate-out {
+	left: 100vw;
+	-webkit-transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
 }
 
 .hero-text {
@@ -646,24 +705,27 @@ header {
 
 .next-hero-preview {
 	background-image: url("../../Design Assets/hero-2-preview.png");
-	height: 5rem;
+	height: 5.75rem;
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
-	margin-top: -1.25rem;
-	display: -webkit-box;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	        flex-direction: column;
-	-webkit-box-pack: center;
-	        justify-content: center;
 	z-index: 101;
-	text-align: center;
-	padding-right: 5rem;
-	font-size: 2rem;
-	position: relative;
+	position: absolute;
+	width: 8rem;
+	left: 50%;
+	-webkit-transform: translateX(-50%) translateY(-2rem);
+	    -ms-transform: translateX(-50%) translateY(-2rem);
+	        transform: translateX(-50%) translateY(-2rem);
 	cursor: pointer;
+	-webkit-transition: all .4s;
+	transition: all .4s;
+	-webkit-transform-origin: 18% 0;
+	    -ms-transform-origin: 18% 0;
+	        transform-origin: 18% 0;
+}
+
+.next-hero-preview.female {
+	background-image: url("../../Design Assets/hero-1-preview.png");
 }
 
 .scroll-indicator {
@@ -671,9 +733,10 @@ header {
 	z-index: 999;
 	bottom: 5.2631%;
 	left: 50%;
-	-webkit-transform: translateX(-100%);
-	    -ms-transform: translateX(-100%);
-	        transform: translateX(-100%);
+	-webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	width: 1rem;
 	display: -webkit-box;
 	display: flex;
 	-webkit-box-orient: vertical;
@@ -681,9 +744,9 @@ header {
 	        flex-direction: column;
 	-webkit-box-pack: end;
 	        justify-content: flex-end;
-	-webkit-box-align: center;
-	        align-items: center;
 	cursor: pointer;
+	padding: 1rem 1rem 0 1rem;
+	box-sizing: border-box;
 	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
 }
@@ -831,6 +894,8 @@ header {
 	height: 20vh;
 	overflow: scroll;
 	padding-right: .65rem;
+	font-size: 1rem;
+	line-height: 1rem;
 }
 
 .about-paragraph-container::-webkit-scrollbar {
@@ -963,8 +1028,6 @@ header {
 	z-index: 1;
 	box-shadow: inset 0px 0px 20px 0px #fe003c;
 	cursor: pointer;
-	-webkit-transition: all 2s;
-	transition: all 2s;
 }
 
 .character-preview.v {
@@ -1001,12 +1064,6 @@ header {
 	-webkit-transform: translateY(1rem) translateX(-100vw);
 	    -ms-transform: translateY(1rem) translateX(-100vw);
 	        transform: translateY(1rem) translateX(-100vw);
-}
-
-.character-preview:hover {
-	-webkit-transform: scale(1.02);
-	    -ms-transform: scale(1.02);
-	        transform: scale(1.02);
 }
 
 .character-preview-overlay {
@@ -1401,6 +1458,10 @@ li.dexter p, li.jackie p, li.johnny p {
 	}
 	.hero {
 		height: 29rem;
+		content: url("../../Design Assets/hero.png");
+	}
+	.hero.female {
+		content: url("../../Design Assets/hero-2.png");
 	}
 	.trailer-container {
 		height: 27rem;
@@ -1411,10 +1472,6 @@ li.dexter p, li.jackie p, li.johnny p {
 	.button-container-home {
 		bottom: -2rem;
 	}
-	.next-hero-preview {
-		height: 8rem;
-		margin-top: -2.5rem;
-	}
 	.platform-select .platform.animation-enter {
 		-webkit-transform: translateX(30vw);
 		    -ms-transform: translateX(30vw);
@@ -1422,6 +1479,11 @@ li.dexter p, li.jackie p, li.johnny p {
 	}
 	.platform-counter.platform-counter {
 		margin-top: 0.25rem;
+	}
+	.next-hero-preview {
+		-webkit-transform: scale(1.5) translateX(-50%) translateY(-2rem);
+		    -ms-transform: scale(1.5) translateX(-50%) translateY(-2rem);
+		        transform: scale(1.5) translateX(-50%) translateY(-2rem);
 	}
 	.container.about {
 		height: calc(var(--vh, 1vh) * 75);
@@ -1540,6 +1602,9 @@ li.dexter p, li.jackie p, li.johnny p {
 		left: -194px;
 		content: url("../../Design Assets/hero-fullscreen.png");
 	}
+	.hero.female {
+		content: url("../../Design Assets/hero-fullscreen-2.png");
+	}
 	.trailer-container {
 		top: -7rem;
 		margin-left: 6.75rem;
@@ -1644,10 +1709,18 @@ li.dexter p, li.jackie p, li.johnny p {
 	.next-hero-preview {
 		position: absolute;
 		right: 6rem;
+		left: unset;
 		bottom: -11rem;
-		-webkit-transform: scale(2);
-		    -ms-transform: scale(2);
-		        transform: scale(2);
+		-webkit-transform: scale(1.75) translateY(-1.6rem) translateX(-0.5rem);
+		    -ms-transform: scale(1.75) translateY(-1.6rem) translateX(-0.5rem);
+		        transform: scale(1.75) translateY(-1.6rem) translateX(-0.5rem);
+	}
+	.next-hero-preview:hover {
+		-webkit-transition: all 2s;
+		transition: all 2s;
+		-webkit-transform: scale(2) translateY(-1.6rem) translateX(-0.5rem);
+		    -ms-transform: scale(2) translateY(-1.6rem) translateX(-0.5rem);
+		        transform: scale(2) translateY(-1.6rem) translateX(-0.5rem);
 	}
 	.hero-divider {
 		width: 5rem;
@@ -1684,7 +1757,8 @@ li.dexter p, li.jackie p, li.johnny p {
 	header .container-home .hero-counter {
 		grid-row: 7;
 		grid-column: 2/6;
-		margin-top: 3rem;
+		margin-top: 5rem;
+		overflow: hidden;
 	}
 	header .container-home .hero-counter button {
 		-webkit-filter: invert(1);
@@ -2100,8 +2174,10 @@ li.dexter p, li.jackie p, li.johnny p {
 	.hero {
 		height: 45rem;
 		top: -10rem;
-		left: -12rem;
 		content: url("../../Design Assets/hero-fullscreen.png");
+	}
+	.hero.female {
+		content: url("../../Design Assets/hero-fullscreen-2.png");
 	}
 	.trailer-container {
 		top: -7rem;
@@ -2153,6 +2229,10 @@ li.dexter p, li.jackie p, li.johnny p {
 		margin-right: 6rem;
 	}
 	.hero-text:before {
+		-webkit-animation: fade-in 4s;
+		        animation: fade-in 4s;
+		-webkit-transition: opacity 1s;
+		transition: opacity 1s;
 		content: "Select Platform";
 		text-transform: uppercase;
 		position: absolute;
@@ -2168,6 +2248,8 @@ li.dexter p, li.jackie p, li.johnny p {
 		z-index: 10;
 	}
 	.platform-spacer {
+		-webkit-animation: fade-in 5s;
+		        animation: fade-in 5s;
 		background-color: white;
 		height: 1px;
 		width: 10px;
@@ -2182,7 +2264,6 @@ li.dexter p, li.jackie p, li.johnny p {
 		grid-column: 4 /span 4;
 		margin-top: -2rem;
 		margin-left: auto;
-		margin-right: -2rem;
 		-webkit-filter: invert(1);
 		        filter: invert(1);
 		-webkit-transform: scale(0.9);
@@ -2235,14 +2316,6 @@ li.dexter p, li.jackie p, li.johnny p {
 		min-width: 100%;
 		position: absolute;
 	}
-	.next-hero-preview {
-		position: absolute;
-		right: 6rem;
-		bottom: -11rem;
-		-webkit-transform: scale(2);
-		    -ms-transform: scale(2);
-		        transform: scale(2);
-	}
 	.hero-text {
 		font-size: 21rem;
 		left: -21rem;
@@ -2287,6 +2360,7 @@ li.dexter p, li.jackie p, li.johnny p {
 		grid-row: 7;
 		grid-column: 5/6;
 		margin-left: -3.5rem;
+		margin-top: 2rem;
 	}
 	header .container-home .hero-counter button {
 		-webkit-filter: invert(1);
@@ -2301,6 +2375,16 @@ li.dexter p, li.jackie p, li.johnny p {
 	}
 	.about-hero {
 		right: 140px;
+	}
+	.next-hero-preview {
+		-webkit-transform: scale(2) translateY(-1.5rem) translateX(-1.5rem);
+		    -ms-transform: scale(2) translateY(-1.5rem) translateX(-1.5rem);
+		        transform: scale(2) translateY(-1.5rem) translateX(-1.5rem);
+	}
+	.next-hero-preview:hover {
+		-webkit-transform: scale(2.25) translateY(-1.5rem) translateX(-1.5rem);
+		    -ms-transform: scale(2.25) translateY(-1.5rem) translateX(-1.5rem);
+		        transform: scale(2.25) translateY(-1.5rem) translateX(-1.5rem);
 	}
 }
 

@@ -7,7 +7,7 @@ window.addEventListener('resize', () => {
 });
 
 function resizeSpacer() {
-	spacer.style.width = window.innerWidth - spacer.getBoundingClientRect().x - 415 + 'px'
+	spacer.style.width = window.innerWidth - spacer.getBoundingClientRect().x - 430 + 'px'
 }
 
 resizeSpacer()
@@ -30,34 +30,32 @@ if ( window.innerWidth >= 1024 ) {
             css:{
                 top: "-16rem",
                 height: "61rem",
-                width: "100vw",
-                left: "-42.8rem",
+                width: "104vw",
+                left: "-44rem",
                 filter: "hue-rotate(180deg)"
-            }
-        },{css:{
-            height: "42rem",
-            top: "-7rem",
-            left: "-42.8rem",
-            filter: "hue-rotate(0deg)"
-        }
-        },2.5)
-        .from('.hero-container i', .5, {
-        ease: Power2.easeInOut,
-        css:{
-            left: "-600px"
-        }},"-=7.25")
+            }},{css:{
+                height: "42rem",
+                top: "-7rem",
+                left: "-42rem",
+                filter: "hue-rotate(0deg)"
+            }},2.5)
+        .from('.hero-container i', .52, {
+            ease: Power2.easeInOut,
+                css:{
+                    left: "-600px"
+            }},"-=7.25")
         .to('.trailer-container', 0.5, {
             ease: Power2.easeInOut,
-            css:{
-                left: '-4.8rem'
-            }
-        },"-=7.25")
+                css:{
+                    left: '-4.8rem'
+                }
+            },"-=7.25")
         .to('.hero', 0.5, {
             ease: Power2.easeInOut,
-            css:{
-                left: '-148px'
-            }
-        },"-=7.25")
+                css:{
+                    left: '-148px'
+                }
+            },"-=7.25")
     } else if ( window.innerWidth < 1550 ) {
         tl.from('header', 10, {
             ease: Power4.easeOut,
@@ -73,12 +71,12 @@ if ( window.innerWidth >= 1024 ) {
                 left: "-38rem",
                 filter: "hue-rotate(180deg)"
             }
-        },{css:{
-            height: "35rem",
-            top: "0rem",
-            left: "-33.8rem",
-            filter: "hue-rotate(0deg)"
-        }
+            },{css:{
+                height: "35rem",
+                top: "0rem",
+                left: "-33.8rem",
+                filter: "hue-rotate(0deg)"
+            }
         },2.5)
         .from('.hero-container i', .5, {
         ease: Power2.easeInOut,
@@ -100,60 +98,55 @@ if ( window.innerWidth >= 1024 ) {
     }
 
     tl.from('.hero', 1, {ease: Power2.easeInOut,css:{left:"300rem",opacity:0}},3.45)
-    .from('.hero-numbers', .7, {ease: Power2.easeInOut,css:{left:"300rem", opacity: 0.5}},3.65)
+    .from('.hero-numbers', .7, {ease: Power2.easeInOut,css:{left:"300rem", opacity: 0.5}},3.45)
     .from('.button-container-home', .85, {ease: Power3.easeInOut, css:{left:"300rem",opacity:0}},3.5)
     .from('nav', .8, {ease: Power3.easeInOut, css:{opacity: 0, top:"-100rem"}},2)
     .from('.trailer-border', .8, {left:-5000}, 3.50)
     .staggerFrom(navigation, .75, {opacity: 0, left: 200}, 0.2, 1.5)
     .from('.hero-divider', .8, {ease: Power3.easeInOut,css:{right:"-111%"}}, 3.75)
-    .from('.next-hero-preview', 1, {ease: Power3.easeInOut,x:300}, 3.75)
-    .from('.platform-select', 0.8, {left:3000}, 4)
-    .from('.sm-links', 0.7, {left: -100}, 2.5)
-    .from('.platform-spacer', 0.7, {width: 30}, 4)
+    .from('.hero-counter', .2, {ease: Power3.easeInOut,scale: 0}, 4)
+    .from('.next-hero-preview', 1, {ease: Power3.easeInOut,x:300}, 3.5)
+    .from('.platform-select', 0.8, {left:3000}, 3.5)
+    .from('.sm-links', 0.7, {left: -100}, 3.5)
+    .from('.platform-spacer', 0.5, {width: 30}, 4)
     
     var controller = new ScrollMagic.Controller();
     var tl2 = new TimelineMax();
+    var tl3 = new TimelineMax();
+    let splitHeadline = new SplitText(".about-headline", {type:"lines,words,chars"})
+    let splitParagraph = new SplitText('.about-paragraph-container p', {type:"lines, chars"})
+    var scene, scene2, scene3, scene4
     
-    var scene = new ScrollMagic.Scene({
+    scene = new ScrollMagic.Scene({
         triggerElement: ".about"
-    })
+    }).setTween(".about-image", 0.5, {
+        ease: Power1.easeInOut, 
+        css:{
+            transform: "translate-x: -300px"}
+        }
+    ).addTo(controller)
     
-    .setTween(".about-image", 0.5, {css:{
-        transform: "translate-x: -300px"
-    }})
-    .addTo(controller)
-    
-    function aboutScrollFX() {
-        var controller = new ScrollMagic.Controller();
-        let tl2 = new TimelineMax()
-        let splitHeadline = new SplitText(".about-headline", {type:"lines,words,chars"})
-        let splitParagraph = new SplitText('.about-paragraph-container p', {type:"lines"})
-
-        tl2.staggerFrom(splitHeadline.chars, .2, {
+    scene2 = new ScrollMagic.Scene({
+        triggerElement: ".about"
+    }).setTween(tl3.staggerFrom(splitHeadline.chars, .5, {
+            ease: Power3.easeInOut,
             css:{
                 left: "-70px",
                 color: 'black',
                 opacity: 0,
-            }}, 0.02, "-=2")
-            .staggerFrom(splitParagraph.lines, 1, {
-                ease: Power2.easeInOut,
-                css:{
-                    opacity: 0,
-                    height: 0,
-                    overflow: "hidden"}}, .05, '-=2')
-            .from('.breadcrumbs.abt', 0.7, {x:-400},'-=2.5')
-        var scene = new ScrollMagic.Scene({
-            triggerElement: ".about"
-        })
-    .setTween(tl2)
-    .addTo(controller)
-    scene.triggerHook(0.9)
-    }
-    aboutScrollFX()
+            }}, 0.02, )
+        .staggerFrom(splitParagraph.lines, .7, {
+            ease: Power3.easeInOut,
+            css:{
+                opacity:0,
+                transform: "scaleY(0) translateX(-20vw)",
+                overflowY: "hidden"}}, .05, "-=.7")
+        .from('.breadcrumbs.abt', 0.0001, {x:-400},)
+    ).addTo(controller)
+
     function characterScrollFX() {
 
-        var controller = new ScrollMagic.Controller();
-        let tl3 = new TimelineMax()
+        let timeline = new TimelineMax()
         let v = ['li .character-preview.v', 'li.v .character-preview-overlay']
         let vName = 'li.v h1'
         let vDivider = 'li.v i'
@@ -170,58 +163,71 @@ if ( window.innerWidth >= 1024 ) {
         let johnnyName = 'li.v h1'
         let johnnyDivider = 'li.johnny i'
         let johnnyDescription = new SplitText('li.johnny p', {type:"lines"})
+
         let t = .75
-        let ease = Power2.easeInOut
-        
-        
-        tl2.from(v, t, {
-            ease: ease,
-            css:{
-                left: -300,
-            }})
-        .fromTo([vName, vDivider], t-.3, {
-            ease: ease,
-            css:{
-                left: -500,
-                scale: 0,
-            }},{
-                left: 0,
-                scale: 1,
-            },'-=.5')
-        .staggerFrom(vDescription.lines, t-.3, {      
-            css:{
-                left: -200,
-                opacity: 0,
-            }
-        }, 0.1, '-=.2')
-        .staggerFrom([dexter, jackie, johnny], t, {x:800, scale: 0}, 0.1, '-=1')
-        .from('.breadcrumbs.char', 0.7, {x:-400},'-=2.5')
+        let ease = Power1.easeInOut
         
         var scene = new ScrollMagic.Scene({
             triggerElement: ".trailer"
         })
-        scene.triggerHook(0.1)
-        .setTween(tl2)
+        .setTween(
+            timeline.from(v, .5, {
+                ease: ease,
+                css:{
+                    left: -300,
+                }})
+    
+            .from([vName, vDivider], t-.3, {
+                ease: ease,
+                css:{
+                    left: -500,
+                    scale: 0,
+                }},'-=.5')
+    
+            .staggerFrom(vDescription.lines, t-.3, {      
+                ease: ease,
+                css:{
+                    left: -200,
+                    opacity: 0,
+                }
+            }, 0.1, '-=.2')
+    
+            .staggerFrom([dexter, jackie, johnny], t, {
+                ease: ease,
+                x:800, scale: 0
+            }, 0.1, '-=1')
+    
+            .from('.breadcrumbs.char', 0.7, {
+                x:-400
+            },'-=2.5')
+        )
         .addTo(controller)
     }
     characterScrollFX()
+
     function wallpaperScrollFX() {
         var controller = new ScrollMagic.Controller();
-        let tl3 = new TimelineMax()
-
-        tl3.staggerFrom('.wallpaper-container', .7, {right: -1000}, 0.2)   
-            .from('.wallpaper-divider', 2, {right: -500}, '-=1.5')
-            .from('.wallpaper-counter', 2, {css:{
-                marginLeft: '3000px'
-            }},'-=2')
-            .from('.breadcrumbs.wall', 0.7, {x:-400},'-=2.5')
-
+        let timeline = new TimelineMax()
         var scene = new ScrollMagic.Scene({
             triggerElement: ".wallpaper"
         })
-        scene.triggerHook(0.9)
-        .setTween(tl3)
-        .addTo(controller)
+        .setTween(
+            timeline.staggerFrom('.wallpaper-container', .7, {
+                ease: Power1.easeInOut,
+                right: -1000}, .2)   
+            .from('.wallpaper-divider', 1, {
+                ease: Power3.easeInOut,
+                right: -500},)
+            .from('.wallpaper-counter', 1, {
+                ease: Power3.easeInOut,
+                css:{
+                    marginLeft: '3000px'
+                }},)
+            .from('.breadcrumbs.wall', 0.7, {
+                ease: Power1.easeInOut,
+                x:-400},)           
+        )
+        .addTo(controller)       
     }
     wallpaperScrollFX()
 }
@@ -360,3 +366,101 @@ scrollIndicator.addEventListener('click', function(){
     }
     document.documentElement.scrollTop = getPosition(anchors[index+1])
 })
+
+let trailerFullscreen = document.querySelector('#video-fullscreen')
+
+
+document.querySelector('.pre-order').addEventListener('click', function(){
+    window.open('https://www.cyberpunk.net/ca/en/pre-order','_blank')
+})
+
+document.querySelector('.watch-trailer').addEventListener('click', function(){
+    window.open('https://www.youtube.com/watch?v=qIcTM8WXFjk','_blank')
+})
+
+document.querySelector('.play-button').addEventListener('click', function(){
+    window.open('https://www.youtube.com/watch?v=qIcTM8WXFjk','_blank')
+})
+
+
+
+                                            ///           /////////////////////////////////
+//////////////////////////////////////////// Interactions/////////////////////////////////
+///////////////////////////////////////////           ///
+
+//Platform select
+
+let platforms = [].slice.call(document.querySelectorAll(".platform"));
+let platformAnimations = [].slice.call(document.querySelectorAll(".platform-animation"));
+
+platforms.forEach(el => {
+    el.addEventListener('click', function(){
+        if (window.innerWidth >= 1024) {
+            platforms.forEach(el=>{
+                el.classList.remove('selected')
+                el.classList.remove('animation-enter')
+                el.classList.remove('animation-off-right')
+            })
+            platformAnimations.forEach(el=>{
+                el.classList.remove('selected')
+                el.classList.remove('hovered')
+            })
+            el.classList.add('selected')
+            platformAnimations[platforms.indexOf(el)].classList.add('selected')     
+        }
+    })
+    el.addEventListener('mouseover',function(){
+        let isSelected
+        if (el.classList.contains('selected')){isSelected = true}
+        platformAnimations.forEach(el=>{
+            el.classList.remove('selected')
+        })
+        if (isSelected){
+            el.classList.add('selected')
+        }
+        platformAnimations[platforms.indexOf(el)].classList.add('hovered')  
+    })
+    el.addEventListener('mouseout',function(){
+        if (!el.classList.contains('selected')){
+            platformAnimations[platforms.indexOf(el)].classList.remove('hovered')     
+        }
+    })
+});
+
+let heroImage = document.querySelector('.hero')
+let nextHero = document.querySelector('.next-hero-preview')
+
+nextHero.addEventListener('click', switchHero)
+
+let nextHeroButton = document.querySelector('.next-hero-button')
+let currentHeroCounter = document.querySelector('.current-hero-counter')
+let previousHeroButton = document.querySelector('.previous-hero-button')
+let currentHeroPosition = 1
+
+function switchHero(){
+    let items = [heroImage, nextHero]
+    TweenMax.to(items, .4, {opacity:0, css:{filter: "hue-rotate(15deg) brightness(2)", mixBlendMode: "hard-light"}, ease:RoughEase.ease.config({points:40, strength:2, clamp:true})});
+    TweenMax.from('.centering-div', .6, {x:20, ease:RoughEase.ease.config({points:800, strength:1, clamp:true})}).yoyo(true);
+    setTimeout(function(){
+        heroImage.classList.toggle('female')
+        nextHero.classList.toggle('female')
+        TweenMax.to(items, .4, {opacity:1, css:{filter: "hue-rotate(0deg) brightness(1)", mixBlendMode: "normal"}, ease:RoughEase.ease.config({points:40, strength:2, clamp:true})});
+    },400)
+}
+
+nextHeroButton.addEventListener('click', function(){
+    if (currentHeroPosition == 1){
+        currentHeroPosition = 2
+        currentHeroCounter.innerText = "02"
+        switchHero()
+    }
+})
+
+previousHeroButton.addEventListener('click', function(){
+    if (currentHeroPosition == 2){
+        currentHeroPosition = 1
+        currentHeroCounter.innerText = "01"
+        switchHero()
+    }
+})
+

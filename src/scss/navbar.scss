@@ -72,12 +72,13 @@ nav {
         font-weight: 700;
         margin-left: 1rem;
         li {
-            margin-bottom: 1rem;
+            margin-bottom: 4px;
             color: $blue;
             position: relative;
             float: left;
             clear: left;
             cursor: pointer;
+            padding: 4px 4px 4px 0;
             &.active {
                 color: $black;
                 &:before, &:after {
